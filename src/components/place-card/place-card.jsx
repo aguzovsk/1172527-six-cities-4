@@ -4,6 +4,7 @@ import {hotelProp} from '../../props/props.jsx';
 const PlaceCard = (props) => {
   const {hotel} = props;
   const {title, type, previewImage, price, rating, isPremium, isFavourite} = hotel;
+
   return <article className="cities__place-card place-card">
     {isPremium && <div className="place-card__mark">
       <span>Premium</span>
