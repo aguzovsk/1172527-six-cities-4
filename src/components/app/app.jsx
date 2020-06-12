@@ -2,10 +2,10 @@ import React from 'react'
 import Main from '../main/main.jsx';
 
 const App = (props) => {
-  const {placesCount} = props;
+  const {hotels} = props;
 
   return <Main
-    placesCount={placesCount}
+    hotels={hotels}
   />;
 };
 
