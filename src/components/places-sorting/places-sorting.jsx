@@ -1,22 +1,28 @@
 import React from 'react';
 
 const sortValues = {
-  popular: `Popular`,
+  'popular': `Popular`,
   'to-high': `Price: low to high`,
   'to-low': `Price: high to low`,
   'top-rated': `Top rated first`
 };
 
-const placeOption2 = (key, value, isSelected) => {
-  return <li key={key} className={`places__option ${isSelected && `places__option--active`}`} data-value={key} tabIndex="0">{value}</li>
-}
+const placeOption = (key, value, isSelected) => {
+  return <li
+    key={key}
+    className={`places__option ${isSelected && `places__option--active`}`}
+    data-value={key}
+    tabIndex="0">
+    {value}
+  </li>;
+};
 
 const renderOptions = (options, selected) => {
   return Object.entries(options)
     .map(
-      (pair) => placeOption2(pair[0], pair[1], pair[0] === selected)
+        (pair) => placeOption(pair[0], pair[1], pair[0] === selected)
     );
-}
+};
 
 const PlacesSorting = () => {
   const active = `popular`;
@@ -32,7 +38,7 @@ const PlacesSorting = () => {
     <ul className="places__options places__options--custom places__options--opened">
       {renderOptions(sortValues, active)}
     </ul>
-  </form>
+  </form>;
 };
 
 export default PlacesSorting;

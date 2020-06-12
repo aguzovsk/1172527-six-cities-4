@@ -5,8 +5,8 @@ const locationItem = (name, isActive) => {
     <a className={`locations__item-link tabs__item ${isActive && `tabs__item--active`}`} href="#">
       <span>{name}</span>
     </a>
-  </li>
-}
+  </li>;
+};
 
 const locationNames = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
 
@@ -17,7 +17,7 @@ const Tabs = () => {
         {locationNames.map((name) => locationItem(name, name === `Amsterdam`))}
       </ul>
     </section>
-  </div>
+  </div>;
 };
 
 export default Tabs;

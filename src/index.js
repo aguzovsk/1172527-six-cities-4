@@ -5,10 +5,10 @@ import {hotels} from './mock/hotels.js';
 
 const init = () => {
   ReactDOM.render(
-    <App
-      hotels={hotels}
-    />,
-    document.querySelector(`#root`)
+      <App
+        hotels={hotels}
+      />,
+      document.querySelector(`#root`)
   );
 };
 

@@ -1,8 +1,11 @@
 import React from 'react';
+
 import PlaceCard from '../place-card/place-card.jsx';
 import Tabs from '../tabs/tabs.jsx';
 import PlacesSorting from '../places-sorting/places-sorting.jsx';
 import Header from '../header/header.jsx';
+
+import {hotelsPropObject} from '../../props/props.jsx';
 
 const Main = (props) => {
   const {hotels} = props;
@@ -31,5 +34,7 @@ const Main = (props) => {
     </main>
   </div>;
 };
+
+Main.propTypes = hotelsPropObject;
 
 export default Main;

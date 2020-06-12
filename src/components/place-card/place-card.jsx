@@ -1,4 +1,5 @@
 import React from 'react';
+import {hotelProp} from '../../props/props.jsx';
 
 const PlaceCard = (props) => {
   const {hotel} = props;
@@ -36,8 +37,9 @@ const PlaceCard = (props) => {
       </h2>
       <p className="place-card__type">{type}</p>
     </div>
-  </article>
-
+  </article>;
 };
+
+PlaceCard.propTypes = hotelProp;
 
 export default PlaceCard;
