@@ -9,13 +9,14 @@ import {hotelsPropObject} from '../../props/props.jsx';
 
 const Main = (props) => {
   const {hotels} = props;
+  const onTabClickHandler = () => {};
 
   return <div className="page page--gray page--main">
     <Header />
 
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
-      <Tabs />
+      <Tabs onTabClickHandler={onTabClickHandler} />
       <div className="cities">
         <div className="cities__places-container container">
           <section className="cities__places places">
