@@ -3,6 +3,8 @@
 exports[`Test PlaceCard component Test PlaceCard with first hotel, i.e. is premium, not favourite 1`] = `
 <article
   className="cities__place-card place-card"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <div
     className="place-card__mark"
@@ -108,6 +110,8 @@ exports[`Test PlaceCard component Test PlaceCard with first hotel, i.e. is premi
 exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not premium, is favourite 1`] = `
 <article
   className="cities__place-card place-card"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <div
     className="cities__image-wrapper place-card__image-wrapper"
@@ -206,6 +210,8 @@ exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not pre
 exports[`Test PlaceCard component Test PlaceCard with third hotel, i.e. not premium, not favourite 1`] = `
 <article
   className="cities__place-card place-card"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <div
     className="cities__image-wrapper place-card__image-wrapper"

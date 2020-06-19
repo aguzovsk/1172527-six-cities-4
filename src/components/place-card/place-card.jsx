@@ -1,11 +1,16 @@
 import React from 'react';
-import {hotelPropObject} from '../../props/props.jsx';
+import PropTypes from 'prop-types';
+import {hotelPropType} from '../../props/props.jsx';
 
 const PlaceCard = (props) => {
-  const {hotel} = props;
+  const {hotel, onMouseLeave, onMouseEnter} = props;
   const {title, type, previewImage, price, rating, isPremium, isFavourite} = hotel;
 
-  return <article className="cities__place-card place-card">
+  return <article
+    className="cities__place-card place-card"
+    onMouseEnter={() => onMouseEnter(hotel)}
+    onMouseLeave={() => onMouseLeave()}
+  >
     {isPremium && <div className="place-card__mark">
       <span>Premium</span>
     </div>}
@@ -41,6 +46,10 @@ const PlaceCard = (props) => {
   </article>;
 };
 
-PlaceCard.propTypes = hotelPropObject;
+PlaceCard.propTypes = {
+  hotel: hotelPropType,
+  onMouseEnter: PropTypes.func.isRequired,
+  onMouseLeave: PropTypes.func.isRequired
+};
 
 export default PlaceCard;

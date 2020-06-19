@@ -16,14 +16,16 @@ const hotelProp = {
   isFavourite: PropTypes.bool.isRequired
 };
 
+const hotelPropType = PropTypes.exact(hotelProp);
+
 const hotelsProp = PropTypes.arrayOf(PropTypes.exact(hotelProp));
 
 const hotelPropObject = {
-  hotel: PropTypes.exact(hotelProp)
+  hotel: hotelPropType
 };
 
 const hotelsPropObject = {
   hotels: hotelsProp
 };
 
-export {hotelPropObject, hotelsPropObject};
+export {hotelPropType, hotelPropObject, hotelsPropObject};
