@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {hotelPropType} from '../../props/props.jsx';
+import {typeTextUnfold} from '../../utils.js';
 
 const PlaceCard = (props) => {
   const {hotel, onMouseLeave, onMouseEnter} = props;
@@ -41,7 +42,7 @@ const PlaceCard = (props) => {
       <h2 className="place-card__name">
         <a href="#">{title}</a>
       </h2>
-      <p className="place-card__type">{type}</p>
+      <p className="place-card__type">{typeTextUnfold(type)}</p>
     </div>
   </article>;
 };
@@ -49,7 +50,7 @@ const PlaceCard = (props) => {
 PlaceCard.propTypes = {
   hotel: hotelPropType,
   onMouseEnter: PropTypes.func.isRequired,
-  onMouseLeave: PropTypes.func.isRequired
+  onMouseLeave: PropTypes.func.isRequired,
 };
 
 export default PlaceCard;

@@ -3,7 +3,7 @@ export const hotels =
     {
       id: 1,
       title: `Beautiful &amp; luxurious apartment at great location`,
-      type: `Apartment`,
+      type: `apartment`,
       previewImage: `img/apartment-01.jpg`,
       price: 120,
       rating: `93%`,
@@ -16,7 +16,7 @@ export const hotels =
     {
       id: 2,
       title: `Wood and stone place`,
-      type: `Private room`,
+      type: `room`,
       previewImage: `img/room.jpg`,
       price: 80,
       rating: `80%`,
@@ -29,7 +29,7 @@ export const hotels =
     {
       id: 3,
       title: `Canal View Prinsengracht`,
-      type: `Apartment`,
+      type: `apartment`,
       previewImage: `img/apartment-02.jpg`,
       price: 132,
       rating: `80%`,
@@ -42,7 +42,7 @@ export const hotels =
     {
       id: 4,
       title: `Nice, cozy, warm big bed apartment`,
-      type: `Apartment`,
+      type: `apartment`,
       previewImage: `img/apartment-03.jpg`,
       price: 180,
       rating: `100%`,
@@ -55,7 +55,7 @@ export const hotels =
     {
       id: 5,
       title: `Wood and stone place`,
-      type: `Private room`,
+      type: `room`,
       previewImage: `img/room.jpg`,
       price: 80,
       rating: `80%`,
