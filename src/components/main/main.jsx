@@ -23,7 +23,7 @@ const Main = (props) => {
             <h2 className="visually-hidden">Places</h2>
             <b className="places__found">{hotels.length} places to stay in Amsterdam</b>
             <PlacesSorting />
-            <PlaceList hotels={hotels} />
+            <PlaceList hotels={hotels} cardType="cities" />
           </section>
           <div className="cities__right-section">
             <section className="cities__map map"></section>

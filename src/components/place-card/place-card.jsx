@@ -1,21 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {hotelPropType} from '../../props/props.jsx';
+import {placePropObject} from '../../props/props.jsx';
 import {typeTextUnfold} from '../../utils.js';
 
 const PlaceCard = (props) => {
-  const {hotel, onMouseLeave, onMouseEnter} = props;
+  const {hotel, onMouseLeave, onMouseEnter, cardType} = props;
   const {title, type, previewImage, price, rating, isPremium, isFavourite} = hotel;
 
   return <article
-    className="cities__place-card place-card"
+    className={`${cardType}__place-card place-card`}
     onMouseEnter={() => onMouseEnter(hotel)}
     onMouseLeave={() => onMouseLeave()}
   >
     {isPremium && <div className="place-card__mark">
       <span>Premium</span>
     </div>}
-    <div className="cities__image-wrapper place-card__image-wrapper">
+    <div className={`${cardType}__image-wrapper place-card__image-wrapper`}>
       <a href="#">
         <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image" />
       </a>
@@ -47,10 +46,6 @@ const PlaceCard = (props) => {
   </article>;
 };
 
-PlaceCard.propTypes = {
-  hotel: hotelPropType,
-  onMouseEnter: PropTypes.func.isRequired,
-  onMouseLeave: PropTypes.func.isRequired,
-};
+PlaceCard.propTypes = placePropObject;
 
 export default PlaceCard;

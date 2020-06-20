@@ -6,12 +6,14 @@ const typeProp = PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequ
 const city = PropTypes.exact({
   name: PropTypes.string.isRequired
 });
-// const hostProp = PropTypes.exact({
-//   id: PropTypes.number.isRequired,
-//   name: PropTypes.string.isRequired,
-//   isPro: PropTypes.bool.isRequired,
-//   avatarUrl: PropTypes.string.isRequired
-// });
+const personProp = PropTypes.exact({
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  isPro: PropTypes.bool.isRequired,
+  avatar: PropTypes.string.isRequired
+});
+
+// const hostProp = personProp;
 
 // const offerBasic = {
 //   id: PropTypes.number.isRequired,
@@ -54,12 +56,40 @@ const hotelPropType = PropTypes.exact(hotelProp);
 
 const hotelsProp = PropTypes.arrayOf(PropTypes.exact(hotelProp));
 
+const cardProp = PropTypes.oneOf([`cities`, `near-places`]);
+
 const hotelPropObject = {
-  hotel: hotelPropType
+  hotel: hotelPropType,
+};
+
+const placePropObject = {
+  hotel: hotelPropType,
+  onMouseEnter: PropTypes.func.isRequired,
+  onMouseLeave: PropTypes.func.isRequired,
+  cardType: cardProp.isRequired
 };
 
 const hotelsPropObject = {
   hotels: hotelsProp
 };
 
+const placeListPropObject = {
+  hotels: hotelsProp,
+  cardType: cardProp.isRequired
+};
+
+const reviewProp = {
+  id: PropTypes.number.isRequired,
+  user: personProp.isRequired,
+  rating: PropTypes.number.isRequired,
+  comment: PropTypes.string.isRequired,
+  date: PropTypes.instanceOf(Date)
+};
+
+const reviewsPropObject = {
+  reviews: PropTypes.arrayOf(PropTypes.exact(reviewProp)).isRequired
+};
+
 export {hotelPropType, hotelPropObject, hotelsPropObject};
+export {placePropObject, placeListPropObject};
+export {reviewProp, reviewsPropObject};

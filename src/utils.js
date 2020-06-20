@@ -4,4 +4,6 @@ const typeTextUnfold = (type) => {
   return type !== `room` ? capitalize(type) : `Private Room`;
 };
 
-export {typeTextUnfold};
+const ratingToPercentages = (num) => `${Math.round(num) * 20}%`;
+
+export {typeTextUnfold, ratingToPercentages};
