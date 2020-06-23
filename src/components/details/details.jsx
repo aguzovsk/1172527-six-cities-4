@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../header/header.jsx';
 import {typeTextUnfold} from '../../utils.js';
 import PlaceList from '../place-list/place-list.jsx';
+import Reviews from '../reviews/reviews.jsx';
 
 const Details = () => {
   const goods = [`Wi-Fi`, `Washing machine`, `Towels`, `Heating`, `Coffee machine`, `Baby seat`, `Kitchen`, `Dishwasher`, `Cabel TV`, `Fridge`];

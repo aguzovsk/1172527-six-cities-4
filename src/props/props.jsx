@@ -6,12 +6,7 @@ const typeProp = PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequ
 const city = PropTypes.exact({
   name: PropTypes.string.isRequired
 });
-const personProp = PropTypes.exact({
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  isPro: PropTypes.bool.isRequired,
-  avatar: PropTypes.string.isRequired
-});
+
 
 // const hostProp = personProp;
 
@@ -78,18 +73,6 @@ const placeListPropObject = {
   cardType: cardProp.isRequired
 };
 
-const reviewProp = {
-  id: PropTypes.number.isRequired,
-  user: personProp.isRequired,
-  rating: PropTypes.number.isRequired,
-  comment: PropTypes.string.isRequired,
-  date: PropTypes.instanceOf(Date)
-};
-
-const reviewsPropObject = {
-  reviews: PropTypes.arrayOf(PropTypes.exact(reviewProp)).isRequired
-};
-
 export {hotelPropType, hotelPropObject, hotelsPropObject};
 export {placePropObject, placeListPropObject};
-export {reviewProp, reviewsPropObject};
+export {reviewProp, reviewsPropObject} from './reviewProp.js';

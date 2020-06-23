@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-const capitalize = (word) => word[0].toUpperCase() + word.slice(1);
+import {cityNames} from '../../const.js';
 
 const locationItem = (name, isActive, handler) => {
-  return <li key={name} className={`locations__item ${name}`} onClick={handler}>
+  const lowerCase = name.toLowerCase();
+
+  return <li key={name} className={`locations__item ${lowerCase}`} onClick={handler}>
     <a className={`locations__item-link tabs__item ${isActive && `tabs__item--active`}`} href="#">
-      <span>{capitalize(name)}</span>
+      <span>{name}</span>
     </a>
   </li>;
 };
-
-const locationNames = [`paris`, `cologne`, `brussels`, `amsterdam`, `hamburg`, `dusseldorf`];
 
 const Tabs = (props) => {
   const {onTabClickHandler} = props;
@@ -19,7 +18,7 @@ const Tabs = (props) => {
   return <div className="tabs">
     <section className="locations container">
       <ul className="locations__list tabs__list">
-        {locationNames.map(
+        {cityNames.map(
             (name) => locationItem(name, name === `amsterdam`, onTabClickHandler)
         )}
       </ul>
@@ -32,4 +31,4 @@ Tabs.propTypes = {
 };
 
 export default Tabs;
-export {locationNames};
+export {cityNames as locationNames};

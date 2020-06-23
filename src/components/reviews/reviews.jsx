@@ -3,23 +3,23 @@ import Review from '../review/review.jsx';
 
 
 const starMarkup = () => {
-  const descriptions = {
-    5: `perfect`,
-    4: `good`,
-    3: `not bad`,
-    2: `badly`,
-    1: `terribly`
-  };
+  const descr = [
+    [5, `perfect`],
+    [4, `good`],
+    [3, `not bad`],
+    [2, `badly`],
+    [1, `terribly`]
+  ];
 
-  return Object.entries(descriptions).map((description) => (
-    <>
-      <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio" />
-      <label htmlFor="5-stars" className="reviews__rating-label form__rating-label" title="perfect">
+  return descr.map((key, title) => (
+    <React.Fragment key={key}>
+      <input className="form__rating-input visually-hidden" name="rating" value={`${key}`} id={`${key}-stars`} type="radio" />
+      <label htmlFor={`${key}-stars`} className="reviews__rating-label form__rating-label" title={title}>
         <svg className="form__star-image" width="37" height="33">
           <use xlinkHref="#icon-star"></use>
         </svg>
       </label>
-    </>
+    </React.Fragment>
   ));
 }
 
@@ -35,7 +35,7 @@ const Reviews = (props) => {
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
       <div className="reviews__rating-form form__rating">
         {starMarkup()}
-        <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio" />
+        {/* <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio" />
         <label htmlFor="5-stars" className="reviews__rating-label form__rating-label" title="perfect">
           <svg className="form__star-image" width="37" height="33">
             <use xlinkHref="#icon-star"></use>
@@ -68,7 +68,7 @@ const Reviews = (props) => {
           <svg className="form__star-image" width="37" height="33">
             <use xlinkHref="#icon-star"></use>
           </svg>
-        </label>
+        </label> */}
       </div>
       <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved"></textarea>
       <div className="reviews__button-wrapper">
