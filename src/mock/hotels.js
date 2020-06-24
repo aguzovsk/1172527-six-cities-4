@@ -1,37 +1,4 @@
 import {getRandomIntInRange, GetId} from './utils.js';
-import {cityNames} from '../const.js';
-
-const cityLocation = new Map();
-cityLocation.set(`Amsterdam`, {
-  latitude: 52.37454,
-  longitude: 4.897976,
-});
-cityLocation.set(`Brussels`, {
-  latitude: 50.846557,
-  longitude: 4.351697,
-});
-cityLocation.set(`Cologne`, {
-  latitude: 50.938361,
-  longitude: 6.959974,
-});
-cityLocation.set(`Dusseldorf`, {
-  latitude: 51.225402,
-  longitude: 6.776314,
-});
-cityLocation.set(`Hamburg`, {
-  latitude: 53.550341,
-  longitude: 10.000654,
-});
-cityLocation.set(`Paris`, {
-  latitude: 48.85661,
-  longitude: 2.351499,
-});
-
-const getLocation = () => {
-  const cityIdx = getRandomIntInRange(0, cityNames.length);
-  const city = cityNames[cityIdx];
-
-};
 
 export const hotels =
   [

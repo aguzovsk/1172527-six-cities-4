@@ -1,39 +1,10 @@
 import PropTypes from 'prop-types';
+import {rentTypes} from '../const.js';
 
-// const goodsProp = PropTypes.arrayOf(PropTypes.string);
-// const imagesProp = PropTypes.arrayOf(PropTypes.string);
-const typeProp = PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired;
+const typeProp = PropTypes.oneOf(rentTypes).isRequired;
 const city = PropTypes.exact({
   name: PropTypes.string.isRequired
 });
-
-
-// const hostProp = personProp;
-
-// const offerBasic = {
-//   id: PropTypes.number.isRequired,
-//   image: PropTypes.string.isRequired,
-//   isPremium: PropTypes.bool.isRequired,
-//   price: PropTypes.number.isRequired,
-//   title: PropTypes.string.isRequired,
-//   type: typeProp,
-//   rating: PropTypes.number.isRequired
-// };
-
-// const offerExtended = {
-//   id: PropTypes.number.isRequired,
-//   images: imagesProp.isRequired,
-//   title: PropTypes.string.isRequired,
-//   description: PropTypes.string.isRequired,
-//   isPremium: PropTypes.bool.isRequired,
-//   type: typeProp,
-//   rating: PropTypes.number.isRequired,
-//   bedrooms: PropTypes.number.isRequired,
-//   maxAdults: PropTypes.number.isRequired,
-//   price: PropTypes.number.isRequired,
-//   goods: goodsProp.isRequied,
-//   host: hostProp.isRequired,
-// };
 
 const hotelProp = {
   id: PropTypes.number.isRequired,
@@ -75,4 +46,3 @@ const placeListPropObject = {
 
 export {hotelPropType, hotelPropObject, hotelsPropObject};
 export {placePropObject, placeListPropObject};
-export {reviewProp, reviewsPropObject} from './reviewProp.js';
