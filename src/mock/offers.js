@@ -43,12 +43,12 @@ const generateGoods = () => {
   return getShuffled(selectedGoods);
 };
 
-const generateHotelInfo = () => setLocation({
+const generateOffer = () => setLocation({
   id: getId.next(),
   previewImage: generateHotelPicture(),
   images: generateHotelPictures(),
   title: generateText(1),
-  isFavourite: getRandomBool(0.7),
+  isFavorite: getRandomBool(0.7),
   isPremium: getRandomBool(0.7),
   rating: generateRating(),
   type: generateHotelType(),
@@ -61,10 +61,10 @@ const generateHotelInfo = () => setLocation({
 });
 
 
-const generateHotels = (num) => {
+const generateOffers = (num) => {
   const len = num || getRandomIntInRange(5, 15);
 
-  return new Array(len).fill(``).map(() => generateHotelInfo());
+  return new Array(len).fill(``).map(() => generateOffer());
 };
 
-export {generateHotels};
+export {generateOffers};

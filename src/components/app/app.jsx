@@ -2,23 +2,24 @@ import React from 'react';
 import Main from '../main/main.jsx';
 import Details from '../details/details.jsx';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import {hotelsPropObject} from '../../props/props.jsx';
+import {offersPropObject} from '../../props/offerProp.js';
+import {generateOffers} from '../../mock/offers.js';
 
 const App = (props) => {
-  const {hotels} = props;
+  const {offers} = props;
 
   return <BrowserRouter>
     <Switch>
       <Route exact path="/">
-        <Main hotels={hotels} />
+        <Main offers={offers} />
       </Route>
       <Route exact path="/details">
-        <Details />
+        <Details offer={generateOffers(1)[0]} />
       </Route>
     </Switch>
   </BrowserRouter>;
 };
 
-App.propTypes = hotelsPropObject;
+App.propTypes = offersPropObject;
 
 export default App;

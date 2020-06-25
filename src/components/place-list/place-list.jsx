@@ -1,6 +1,6 @@
 import React from 'react';
 import PlaceCard from '../place-card/place-card.jsx';
-import {placeListPropObject} from '../../props/props.jsx';
+import {placeListPropObject} from '../../props/placeProp.js';
 
 const NO_ACTIVE_CARD = Number.EPSILON;
 
@@ -29,12 +29,12 @@ class PlaceList extends React.PureComponent {
   }
 
   render() {
-    const {hotels, cardType} = this.props;
+    const {offers, cardType} = this.props;
 
     return <div className={`places__list ${cardType === `cities` ? `cities__places-list tabs__content` : `near-places__list`}`}>
-      {hotels.map((hotel) => <PlaceCard
-        key={hotel.id}
-        hotel={hotel}
+      {offers.map((offer) => <PlaceCard
+        key={offer.id}
+        offer={offer}
         cardType={cardType}
         onMouseEnter={this._mouseEnterHandler}
         onMouseLeave={this._mouseLeaveHandler}

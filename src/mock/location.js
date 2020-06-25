@@ -62,7 +62,7 @@ const setLocation = (obj) => {
     location: addZoom(getRandomLocation(cityLocation), 16)
   };
 
-  Object.assign(obj, cityObj, locationObj);
+  return Object.assign(obj, cityObj, locationObj);
 };
 
 export {setLocation};

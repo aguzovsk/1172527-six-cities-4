@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app.jsx';
-import {hotels} from './mock/hotels.js';
+import {generateOffers} from './mock/offers.js';
+
+const offers = generateOffers(5);
 
 const init = () => {
   ReactDOM.render(
       <App
-        hotels={hotels}
+        offers={offers}
       />,
       document.querySelector(`#root`)
   );

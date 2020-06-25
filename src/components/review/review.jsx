@@ -4,19 +4,6 @@ import {getYearMonthDay, getMonthYear} from '../../utils.js';
 import {reviewPropObject} from '../../props/reviewProp.js';
 
 const Review = ({review}) => {
-  // const {review} = props;
-  // const {user, rating, comment, date} = review;
-  // const date = new Date();
-
-  /* const rating = 4.1;
-  const comment = `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`;
-  const user = {
-    id: 12,
-    name: `Max`,
-    isPro: false,
-    avatar: `img/avatar-max.jpg`
-  }; */
-
   const {user, rating, comment, date} = review;
 
   return <li className="reviews__item">

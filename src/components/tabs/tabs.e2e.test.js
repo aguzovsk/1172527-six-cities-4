@@ -11,19 +11,19 @@ describe(`E2E tests on Tabs component`, () => {
   const mockFn = jest.fn();
   const tabs = shallow(<Tabs onTabClickHandler={mockFn}/>);
 
-  it(`Click on amsterdam`, () => {
+  it(`Click on Amsterdam`, () => {
     const amsterdam = tabs.find(`.amsterdam`);
     amsterdam.simulate(`click`);
     expect(mockFn).toHaveBeenCalled();
   });
 
-  it(`Click on cologne`, () => {
+  it(`Click on Cologne`, () => {
     const cologne = tabs.find(`.cologne`);
     cologne.props().onClick();
     expect(mockFn).toHaveBeenCalledTimes(2);
   });
 
-  it(`Click on dusseldorf`, () => {
+  it(`Click on Dusseldorf`, () => {
     const dusseldorf = tabs.find(`.dusseldorf`);
     dusseldorf.prop(`onClick`)();
     expect(mockFn.mock.calls.length).toBe(3);

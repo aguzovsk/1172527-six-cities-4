@@ -4,10 +4,10 @@ import {offerProp, offersProp} from './offerProp.js';
 const cardProp = PropTypes.oneOf([`cities`, `near-places`]);
 
 const placePropObject = {
-  offer: offerProp,
+  offer: PropTypes.exact(offerProp),
   onMouseEnter: PropTypes.func.isRequired,
   onMouseLeave: PropTypes.func.isRequired,
-  cardType: cardProp.isRequired
+  cardType: cardProp
 };
 
 const placeListPropObject = {

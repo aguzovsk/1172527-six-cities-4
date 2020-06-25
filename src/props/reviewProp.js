@@ -11,7 +11,7 @@ const reviewProp = {
 
 const reviewPropObject = {
   review: PropTypes.exact(reviewProp)
-}
+};
 
 const reviewsPropObject = {
   reviews: PropTypes.arrayOf(PropTypes.exact(reviewProp)).isRequired

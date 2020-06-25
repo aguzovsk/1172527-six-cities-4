@@ -1,14 +1,15 @@
 import React from 'react';
-import {placePropObject} from '../../props/props.jsx';
+import {placePropObject} from '../../props/placeProp.js';
 import {typeTextUnfold} from '../../utils.js';
+import {ratingToPercentages} from '../../utils.js';
 
 const PlaceCard = (props) => {
-  const {hotel, onMouseLeave, onMouseEnter, cardType} = props;
-  const {title, type, previewImage, price, rating, isPremium, isFavourite} = hotel;
+  const {offer, onMouseLeave, onMouseEnter, cardType} = props;
+  const {title, type, previewImage, price, rating, isPremium, isFavourite} = offer;
 
   return <article
-    className={`${cardType === `cities`  ? `cities__place-card` : `near-places__card`} place-card`}
-    onMouseEnter={() => onMouseEnter(hotel)}
+    className={`${cardType === `cities` ? `cities__place-card` : `near-places__card`} place-card`}
+    onMouseEnter={() => onMouseEnter(offer)}
     onMouseLeave={() => onMouseLeave()}
   >
     {isPremium && <div className="place-card__mark">
@@ -34,7 +35,7 @@ const PlaceCard = (props) => {
       </div>
       <div className="place-card__rating rating">
         <div className="place-card__stars rating__stars">
-          <span style={{width: rating}}></span>
+          <span style={{width: ratingToPercentages(rating)}}></span>
           <span className="visually-hidden">Rating</span>
         </div>
       </div>

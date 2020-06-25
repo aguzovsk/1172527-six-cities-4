@@ -19,7 +19,7 @@ const Tabs = (props) => {
     <section className="locations container">
       <ul className="locations__list tabs__list">
         {cityNames.map(
-            (name) => locationItem(name, name === `amsterdam`, onTabClickHandler)
+            (name) => locationItem(name, name === `Amsterdam`, onTabClickHandler)
         )}
       </ul>
     </section>
@@ -31,4 +31,3 @@ Tabs.propTypes = {
 };
 
 export default Tabs;
-export {cityNames as locationNames};

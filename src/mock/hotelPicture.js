@@ -1,4 +1,4 @@
-import {getRandomIntInRange} from './util.js';
+import {getRandomIntInRange} from './utils.js';
 
 const generateHotelPicture = () => {
   const idx = getRandomIntInRange(1, 21);

@@ -4,60 +4,15 @@ import {typeTextUnfold} from '../../utils.js';
 import PlaceList from '../place-list/place-list.jsx';
 import Reviews from '../reviews/reviews.jsx';
 import {generateReviews} from '../../mock/reviews.js';
+import {generateOffers} from '../../mock/offers.js';
+import {ratingToPercentages} from '../../utils.js';
+import {offerPropObject} from '../../props/offerProp.js';
 
-const Details = () => {
-  const goods = [`Wi-Fi`, `Washing machine`, `Towels`, `Heating`, `Coffee machine`, `Baby seat`, `Kitchen`, `Dishwasher`, `Cabel TV`, `Fridge`];
-  const bedrooms = 3;
-  const maxAdults = 4;
-  const type = `apartment`;
-  const price = 120;
-  const title = `Beautiful &amp; luxurious studio at great location`;
-  const isPremium = true;
-  const rating = 4.8;
-  const host = {
-    name: `Angelina`,
-  };
-  const city = {
-    name: `Amsterdam`
-  };
-
+const Details = ({offer}) => {
+  const {goods, bedrooms, maxAdults, type, price, title, isPremium, rating, host, images} = offer;
+  const {description} = offer;
+  const offers = generateOffers(3);
   const reviews = generateReviews(1);
-
-  const hotels = [
-    {
-      id: 6,
-      city,
-      isPremium: false,
-      previewImage: `img/room.jpg`,
-      price: 80,
-      isFavourite: true,
-      rating: `80%`,
-      title: `Wood and stone place`,
-      type: `room`
-    },
-    {
-      id: 7,
-      city,
-      isPremium: false,
-      previewImage: `img/apartment-02.jpg`,
-      price: 132,
-      isFavourite: false,
-      rating: `80%`,
-      title: `Canal View Prinsengracht`,
-      type: `apartment`
-    },
-    {
-      id: 8,
-      city,
-      isPremium: false,
-      previewImage: `img/apartment-03.jpg`,
-      price: 180,
-      isFavourite: false,
-      rating: `100%`,
-      title: `Nice, cozy, warm big bed apartment`,
-      type: `apartment`
-    }
-  ];
 
   return <div className="page">
     <Header />
@@ -66,24 +21,11 @@ const Details = () => {
       <section className="property">
         <div className="property__gallery-container container">
           <div className="property__gallery">
-            <div className="property__image-wrapper">
-              <img className="property__image" src="img/room.jpg" alt="Photo studio" />
-            </div>
-            <div className="property__image-wrapper">
-              <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
-            </div>
-            <div className="property__image-wrapper">
-              <img className="property__image" src="img/apartment-02.jpg" alt="Photo studio" />
-            </div>
-            <div className="property__image-wrapper">
-              <img className="property__image" src="img/apartment-03.jpg" alt="Photo studio" />
-            </div>
-            <div className="property__image-wrapper">
-              <img className="property__image" src="img/studio-01.jpg" alt="Photo studio" />
-            </div>
-            <div className="property__image-wrapper">
-              <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
-            </div>
+            {images.slice(0, 6).map((image, idx) => (
+              <div key={idx} className="property__image-wrapper">
+                <img className="property__image" src={image} alt="Photo studio" />
+              </div>
+            ))}
           </div>
         </div>
         <div className="property__container container">
@@ -107,7 +49,7 @@ const Details = () => {
             </div>
             <div className="property__rating rating">
               <div className="property__stars rating__stars">
-                <span style={{width: `${Math.round(rating) * 20}%`}}></span>
+                <span style={{width: ratingToPercentages(rating)}}></span>
                 <span className="visually-hidden">Rating</span>
               </div>
               <span className="property__rating-value rating__value">{rating}</span>
@@ -148,12 +90,11 @@ const Details = () => {
                 </span>
               </div>
               <div className="property__description">
-                <p className="property__text">
-                  A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-                </p>
-                <p className="property__text">
-                  An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
-                </p>
+                {description.split(/[\.!\?]+\s+/).map((sentence, idx) => (
+                  <p key={idx} className="property__text">
+                    {sentence}
+                  </p>
+                ))}
               </div>
             </div>
 
@@ -165,11 +106,13 @@ const Details = () => {
       <div className="container">
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
-          <PlaceList hotels={hotels} cardType="near-places" />
+          <PlaceList offers={offers} cardType="near-places" />
         </section>
       </div>
     </main>
   </div>;
 };
+
+Details.propTypes = offerPropObject;
 
 export default Details;

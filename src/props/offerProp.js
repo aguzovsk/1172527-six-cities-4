@@ -19,8 +19,9 @@ const cityProp = PropTypes.exact({
 
 const offerBasic = {
   id: PropTypes.number.isRequired,
-  image: PropTypes.string.isRequired,
+  previewImage: PropTypes.string.isRequired,
   isPremium: PropTypes.bool.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
   price: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   type: typeProp,
@@ -40,15 +41,15 @@ const offerExtended = {
   bedrooms: PropTypes.number.isRequired,
   maxAdults: PropTypes.number.isRequired,
   // price: PropTypes.number.isRequired,
-  goods: goodsProp.isRequied,
+  goods: goodsProp,
   host: personProp.isRequired,
 };
 
 const offerProp = Object.assign({}, offerBasic, offerExtended);
 
-// const offerPropObject = {
-//   offer: PropTypes.exact(offerProp)
-// };
+const offerPropObject = {
+  offer: PropTypes.exact(offerProp)
+};
 
 const offersProp = PropTypes.arrayOf(PropTypes.exact(offerProp));
 
@@ -57,4 +58,4 @@ const offersPropObject = {
 };
 
 export {offerProp, offersProp};
-export {offersPropObject};
+export {offersPropObject, offerPropObject};
