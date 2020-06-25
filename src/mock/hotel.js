@@ -38,10 +38,10 @@ const generateGoods = () => {
     indices.add(getRandomIntInRange(0, goods.length));
   }
 
-  const selectedGoods = new Array.from(indices).map(index => goods[index]);
+  const selectedGoods = Array.from(indices).map((index) => goods[index]);
 
   return getShuffled(selectedGoods);
-}
+};
 
 const generateHotelInfo = () => setLocation({
   id: getId.next(),
@@ -64,7 +64,7 @@ const generateHotelInfo = () => setLocation({
 const generateHotels = (num) => {
   const len = num || getRandomIntInRange(5, 15);
 
-  return new Array.fill(``).map(() => generateHotelInfo());
+  return new Array(len).fill(``).map(() => generateHotelInfo());
 };
 
 export {generateHotels};

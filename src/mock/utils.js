@@ -9,7 +9,7 @@ export class GetId {
       return ++id;
     };
   }
-};
+}
 
 export const getRandomBool = (bar) => {
   const threshold = bar || 0.5;

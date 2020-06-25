@@ -12,15 +12,16 @@ export const MINUTE = 60 * SECOND;
 export const HOUR = 60 * MINUTE;
 export const DAY = 24 * HOUR;
 
-const getYearMonthDay = (date) => date
+export const getYearMonthDay = (date) => date
   .toISOString().split(`T`)[0];
-export const getMonthDay = (date) => date
-  .toDateString().split(` `)
-  .slice(1, 3).join(` `);
-export const getHourMinute = (date) => {
-  const hours = formatDecimal(date.getHours());
-  const minutes = formatDecimal(date.getMinutes());
-  return `${hours}:${minutes}`;
-};
+export const getMonthYear = (date) => date.toGMTString().split(` `).slice(2, 4).join(` `);
+// export const getMonthDay = (date) => date
+//   .toDateString().split(` `)
+//   .slice(1, 3).join(` `);
+// export const getHourMinute = (date) => {
+//   const hours = formatDecimal(date.getHours());
+//   const minutes = formatDecimal(date.getMinutes());
+//   return `${hours}:${minutes}`;
+// };
 
 export {typeTextUnfold, ratingToPercentages, capitalize};

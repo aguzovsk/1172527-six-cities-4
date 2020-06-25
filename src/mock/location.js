@@ -1,4 +1,5 @@
 import {cityNames} from '../const.js';
+import {getRandomIntInRange} from './utils.js';
 
 const cityCoordinates = new Map();
 cityCoordinates.set(`Amsterdam`, {
@@ -32,14 +33,13 @@ const getRandomCoordinate = (coordinate) => {
   const distance = radius * Math.random();
 
   return coordinate + sign * distance;
-}
+};
 
-const getRandomLocation = (city) => {
-
+const getRandomLocation = ({latitude, longitude}) => {
   return {
     latitude: getRandomCoordinate(latitude),
     longitude: getRandomCoordinate(longitude)
-  }
+  };
 };
 
 const addZoom = (coordinates, zoom) => {
@@ -60,7 +60,7 @@ const setLocation = (obj) => {
 
   const locationObj = {
     location: addZoom(getRandomLocation(cityLocation), 16)
-  }
+  };
 
   Object.assign(obj, cityObj, locationObj);
 };

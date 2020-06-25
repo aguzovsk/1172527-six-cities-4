@@ -1,17 +1,23 @@
 import React from 'react';
+import {ratingToPercentages} from '../../utils.js';
+import {getYearMonthDay, getMonthYear} from '../../utils.js';
+import {reviewPropObject} from '../../props/reviewProp.js';
 
-const Review = () => {
+const Review = ({review}) => {
   // const {review} = props;
   // const {user, rating, comment, date} = review;
-  const rating = 4.1;
   // const date = new Date();
+
+  /* const rating = 4.1;
   const comment = `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`;
   const user = {
     id: 12,
     name: `Max`,
     isPro: false,
     avatar: `img/avatar-max.jpg`
-  };
+  }; */
+
+  const {user, rating, comment, date} = review;
 
   return <li className="reviews__item">
     <div className="reviews__user user">
@@ -32,9 +38,11 @@ const Review = () => {
       <p className="reviews__text">
         {comment}
       </p>
-      <time className="reviews__time" dateTime="2019-04-24">April 2019</time>
+      <time className="reviews__time" dateTime={getYearMonthDay(date)}>{getMonthYear(date)}</time>
     </div>
   </li>;
 };
+
+Review.propTypes = reviewPropObject;
 
 export default Review;

@@ -50,11 +50,11 @@ const offerProp = Object.assign({}, offerBasic, offerExtended);
 //   offer: PropTypes.exact(offerProp)
 // };
 
-const offersProp = PropTypes.arrayOf(PropTypes.exact(hotelProp));
+const offersProp = PropTypes.arrayOf(PropTypes.exact(offerProp));
 
 const offersPropObject = {
   offers: offersProp
-}
+};
 
 export {offerProp, offersProp};
 export {offersPropObject};

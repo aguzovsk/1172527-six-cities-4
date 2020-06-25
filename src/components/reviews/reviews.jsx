@@ -1,6 +1,6 @@
 import React from 'react';
 import Review from '../review/review.jsx';
-
+import {reviewsPropObject} from '../../props/reviewProp.js';
 
 const starMarkup = () => {
   const descr = [
@@ -21,7 +21,7 @@ const starMarkup = () => {
       </label>
     </React.Fragment>
   ));
-}
+};
 
 const Reviews = (props) => {
   const {reviews} = props;
@@ -80,5 +80,7 @@ const Reviews = (props) => {
     </form>
   </section>;
 };
+
+Reviews.propTypes = reviewsPropObject;
 
 export default Reviews;

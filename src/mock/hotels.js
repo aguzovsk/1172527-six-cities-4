@@ -1,5 +1,3 @@
-import {getRandomIntInRange, GetId} from './utils.js';
-
 export const hotels =
   [
     {
@@ -48,7 +46,7 @@ export const hotels =
       previewImage: `img/apartment-03.jpg`,
       price: 180,
       rating: `100%`,
-      isPremium: false,
+      isPremium: true,
       isFavourite: false,
       city: {
         name: `Amsterdam`,
@@ -68,7 +66,3 @@ export const hotels =
       }
     }
   ];
-
-
-
-

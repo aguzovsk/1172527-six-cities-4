@@ -1,4 +1,8 @@
 import {DAY, HOUR, MINUTE} from '../utils.js';
+import {getRandomIntInRange} from './utils.js';
+
+const dateStartOffset = -7;
+const dateEndOffset = 7;
 
 const getRandomDate = () => {
   const targetDate = new Date();

@@ -3,6 +3,7 @@ import Header from '../header/header.jsx';
 import {typeTextUnfold} from '../../utils.js';
 import PlaceList from '../place-list/place-list.jsx';
 import Reviews from '../reviews/reviews.jsx';
+import {generateReviews} from '../../mock/reviews.js';
 
 const Details = () => {
   const goods = [`Wi-Fi`, `Washing machine`, `Towels`, `Heating`, `Coffee machine`, `Baby seat`, `Kitchen`, `Dishwasher`, `Cabel TV`, `Fridge`];
@@ -19,6 +20,8 @@ const Details = () => {
   const city = {
     name: `Amsterdam`
   };
+
+  const reviews = generateReviews(1);
 
   const hotels = [
     {
@@ -153,9 +156,10 @@ const Details = () => {
                 </p>
               </div>
             </div>
+
+            <Reviews reviews={reviews} />
           </div>
         </div>
-        <Reviews reviews={reviews} />
         <section className="property__map map"></section>
       </section>
       <div className="container">

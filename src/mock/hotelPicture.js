@@ -8,6 +8,6 @@ const generateHotelPicture = () => {
 const generateHotelPictures = (num) => {
   const len = num || getRandomIntInRange(6, 10);
   return new Array(len).fill(``).map(() => generateHotelPicture());
-}
+};
 
 export {generateHotelPicture, generateHotelPictures};
