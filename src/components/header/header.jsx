@@ -1,14 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Header = () => {
+const Header = ({onTitleClick, isActiveLink}) => {
   const userName = `Oliver.conner@gmail.com`;
-  const isActiveLink = true;
 
   return <header className="header">
     <div className="container">
       <div className="header__wrapper">
         <div className="header__left">
-          <a className={`header__logo-link ${isActiveLink ? `header__logo-link--active` : ``}`}>
+          <a className={`header__logo-link ${isActiveLink ? `header__logo-link--active` : ``}`} onClick={() => onTitleClick()}>
             <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
           </a>
         </div>
@@ -26,6 +26,11 @@ const Header = () => {
       </div>
     </div>
   </header>;
+};
+
+Header.propTypes = {
+  onTitleClick: PropTypes.func.isRequired,
+  isActiveLink: PropTypes.bool.isRequired
 };
 
 export default Header;

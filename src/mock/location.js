@@ -46,9 +46,9 @@ const addZoom = (coordinates, zoom) => {
   return Object.assign({}, coordinates, {zoom});
 };
 
-const setLocation = (obj) => {
+const setLocation = (obj, givenCity) => {
   const cityIdx = getRandomIntInRange(0, cityNames.length);
-  const city = cityNames[cityIdx];
+  const city = givenCity || cityNames[cityIdx];
   const cityLocation = cityCoordinates.get(city);
 
   const cityObj = {

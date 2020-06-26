@@ -1,11 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Main from './main.jsx';
-import {hotels} from '../../mock/hotels.js';
+import offersAmsterdam from '../../test-mock/offers-amsterdam.js';
 
 describe(`Test main component`, () => {
-  it(`Main is being tested with hotels mock`, () => {
-    const tree = renderer.create(<Main hotels={hotels} />);
+  it(`Main is being tested with offers mock`, () => {
+    const onTitleClick = () => {};
+    const tree = renderer.create(<Main offers={offersAmsterdam} onTitleClick={onTitleClick} />);
 
     expect(tree).toMatchSnapshot();
   });

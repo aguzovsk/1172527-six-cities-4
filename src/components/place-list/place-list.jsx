@@ -29,7 +29,7 @@ class PlaceList extends React.PureComponent {
   }
 
   render() {
-    const {offers, cardType} = this.props;
+    const {offers, cardType, onTitleClick} = this.props;
 
     return <div className={`places__list ${cardType === `cities` ? `cities__places-list tabs__content` : `near-places__list`}`}>
       {offers.map((offer) => <PlaceCard
@@ -38,6 +38,7 @@ class PlaceList extends React.PureComponent {
         cardType={cardType}
         onMouseEnter={this._mouseEnterHandler}
         onMouseLeave={this._mouseLeaveHandler}
+        onTitleClick={onTitleClick}
       />)}
     </div>;
   }

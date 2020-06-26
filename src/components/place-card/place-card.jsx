@@ -4,7 +4,7 @@ import {typeTextUnfold} from '../../utils.js';
 import {ratingToPercentages} from '../../utils.js';
 
 const PlaceCard = (props) => {
-  const {offer, onMouseLeave, onMouseEnter, cardType} = props;
+  const {offer, onMouseLeave, onMouseEnter, cardType, onTitleClick} = props;
   const {title, type, previewImage, price, rating, isPremium, isFavourite} = offer;
 
   return <article
@@ -40,7 +40,7 @@ const PlaceCard = (props) => {
         </div>
       </div>
       <h2 className="place-card__name">
-        <a href="#">{title}</a>
+        <a href="#" onClick={() => onTitleClick(offer)} >{title}</a>
       </h2>
       <p className="place-card__type">{typeTextUnfold(type)}</p>
     </div>

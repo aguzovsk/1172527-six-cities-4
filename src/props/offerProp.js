@@ -57,5 +57,16 @@ const offersPropObject = {
   offers: offersProp
 };
 
+const offerPropObjectWithCallback = {
+  offer: PropTypes.exact(offerProp),
+  onTitleClick: PropTypes.func.isRequired
+};
+
+const offersPropObjectWithCallback = {
+  offers: offersProp,
+  onTitleClick: PropTypes.func.isRequired
+};
+
 export {offerProp, offersProp};
 export {offersPropObject, offerPropObject};
+export {offerPropObjectWithCallback, offersPropObjectWithCallback};

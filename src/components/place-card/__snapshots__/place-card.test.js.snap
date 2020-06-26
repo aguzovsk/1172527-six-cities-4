@@ -2,19 +2,12 @@
 
 exports[`Test PlaceCard component Test PlaceCard with first hotel, i.e. is premium, not favourite 1`] = `
 <article
-  className="cities__place-card place-card"
+  className="near-places__card place-card"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <div
-    className="place-card__mark"
-  >
-    <span>
-      Premium
-    </span>
-  </div>
-  <div
-    className="cities__image-wrapper place-card__image-wrapper"
+    className="undefined__image-wrapper place-card__image-wrapper"
   >
     <a
       href="#"
@@ -23,7 +16,7 @@ exports[`Test PlaceCard component Test PlaceCard with first hotel, i.e. is premi
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/apartment-01.jpg"
+        src="img/hotel/3.jpg"
         width="260"
       />
     </a>
@@ -40,8 +33,7 @@ exports[`Test PlaceCard component Test PlaceCard with first hotel, i.e. is premi
         <b
           className="place-card__price-value"
         >
-          €
-          120
+          €288
         </b>
         <span
           className="place-card__price-text"
@@ -50,7 +42,7 @@ exports[`Test PlaceCard component Test PlaceCard with first hotel, i.e. is premi
         </span>
       </div>
       <button
-        className="place-card__bookmark-button button false"
+        className="place-card__bookmark-button button undefined"
         type="button"
       >
         <svg
@@ -78,7 +70,7 @@ exports[`Test PlaceCard component Test PlaceCard with first hotel, i.e. is premi
         <span
           style={
             Object {
-              "width": "93%",
+              "width": "60%",
             }
           }
         />
@@ -94,14 +86,15 @@ exports[`Test PlaceCard component Test PlaceCard with first hotel, i.e. is premi
     >
       <a
         href="#"
+        onClick={[Function]}
       >
-        Beautiful &amp; luxurious apartment at great location
+        Waterfront with extraordinary view
       </a>
     </h2>
     <p
       className="place-card__type"
     >
-      Apartment
+      Private room
     </p>
   </div>
 </article>
@@ -109,12 +102,12 @@ exports[`Test PlaceCard component Test PlaceCard with first hotel, i.e. is premi
 
 exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not premium, is favourite 1`] = `
 <article
-  className="cities__place-card place-card"
+  className="near-places__card place-card"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <div
-    className="cities__image-wrapper place-card__image-wrapper"
+    className="undefined__image-wrapper place-card__image-wrapper"
   >
     <a
       href="#"
@@ -123,7 +116,7 @@ exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not pre
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/room.jpg"
+        src="img/hotel/17.jpg"
         width="260"
       />
     </a>
@@ -140,8 +133,7 @@ exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not pre
         <b
           className="place-card__price-value"
         >
-          €
-          80
+          €121
         </b>
         <span
           className="place-card__price-text"
@@ -150,7 +142,7 @@ exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not pre
         </span>
       </div>
       <button
-        className="place-card__bookmark-button button place-card__bookmark-button--active"
+        className="place-card__bookmark-button button undefined"
         type="button"
       >
         <svg
@@ -165,7 +157,7 @@ exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not pre
         <span
           className="visually-hidden"
         >
-          In bookmarks
+          To bookmarks
         </span>
       </button>
     </div>
@@ -194,8 +186,9 @@ exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not pre
     >
       <a
         href="#"
+        onClick={[Function]}
       >
-        Wood and stone place
+        Waterfront with extraordinary view
       </a>
     </h2>
     <p
@@ -209,12 +202,19 @@ exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not pre
 
 exports[`Test PlaceCard component Test PlaceCard with third hotel, i.e. not premium, not favourite 1`] = `
 <article
-  className="cities__place-card place-card"
+  className="near-places__card place-card"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <div
-    className="cities__image-wrapper place-card__image-wrapper"
+    className="place-card__mark"
+  >
+    <span>
+      Premium
+    </span>
+  </div>
+  <div
+    className="undefined__image-wrapper place-card__image-wrapper"
   >
     <a
       href="#"
@@ -223,7 +223,7 @@ exports[`Test PlaceCard component Test PlaceCard with third hotel, i.e. not prem
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/apartment-02.jpg"
+        src="img/hotel/4.jpg"
         width="260"
       />
     </a>
@@ -240,8 +240,7 @@ exports[`Test PlaceCard component Test PlaceCard with third hotel, i.e. not prem
         <b
           className="place-card__price-value"
         >
-          €
-          132
+          €288
         </b>
         <span
           className="place-card__price-text"
@@ -250,7 +249,7 @@ exports[`Test PlaceCard component Test PlaceCard with third hotel, i.e. not prem
         </span>
       </div>
       <button
-        className="place-card__bookmark-button button false"
+        className="place-card__bookmark-button button undefined"
         type="button"
       >
         <svg
@@ -278,7 +277,7 @@ exports[`Test PlaceCard component Test PlaceCard with third hotel, i.e. not prem
         <span
           style={
             Object {
-              "width": "80%",
+              "width": "40%",
             }
           }
         />
@@ -294,14 +293,15 @@ exports[`Test PlaceCard component Test PlaceCard with third hotel, i.e. not prem
     >
       <a
         href="#"
+        onClick={[Function]}
       >
-        Canal View Prinsengracht
+        Amazing and Extremely Central Flat
       </a>
     </h2>
     <p
       className="place-card__type"
     >
-      Apartment
+      Private room
     </p>
   </div>
 </article>

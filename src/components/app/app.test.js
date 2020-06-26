@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import App from './app.jsx';
-import {hotels} from '../../mock/hotels.js';
+import offersAmsterdam from '../../test-mock/offers-amsterdam.js';
 
 describe(`Test app component`, () => {
-  it(`App component test with hotels mock`, () => {
-    const tree = renderer.create(<App hotels={hotels} />);
+  it(`App component test with offers mock`, () => {
+    const tree = renderer.create(<App offers={offersAmsterdam} />);
 
     expect(tree).toMatchSnapshot();
   });

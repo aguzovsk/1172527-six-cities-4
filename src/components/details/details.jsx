@@ -6,16 +6,42 @@ import Reviews from '../reviews/reviews.jsx';
 import {generateReviews} from '../../mock/reviews.js';
 import {generateOffers} from '../../mock/offers.js';
 import {ratingToPercentages} from '../../utils.js';
-import {offerPropObject} from '../../props/offerProp.js';
+// import {offerPropObject} from '../../props/offerProp.js';
+import {offerPropObjectWithCallback} from '../../props/offerProp.js';
 
-const Details = ({offer}) => {
+// const distance = (first, second) => {
+//   const toRad = (degrees) => degrees * Math.PI * 180;
+
+//   const haversineFormula = (lat1, lat2, lon1, lon2) => {
+//     const R = 6371e3;
+//     const φ1 = toRad(lat1);
+//     const φ2 = toRad(lat2);
+//     const Δφ = toRad(lat2 - lat1);
+//     const Δλ = toRad(lon2 - lon1);
+
+//     const sinHalfΔφ = Math.sin(Δφ/2);
+//     const sinHalfΔλ = Math.sin(Δλ/2);
+
+//     const a = sinHalfΔφ * sinHalfΔφ + Math.cos(φ1) * Math.cos(φ2) * sinHalfΔλ *sinHalfΔλ;
+//     const c = 2 * Math.atan2(Math.sqrt(a, Math.sqrt(1-a)));
+
+//     return R * c;
+//   };
+
+//   const {latitude: lat1, longitude: lon1} = first;
+//   const {latitude: lat2, longitude: lon2} = second;
+
+//   return haversineFormula(lat1, lat2, lon1, lon2);
+// };
+
+const Details = ({offer, onTitleClick}) => {
   const {goods, bedrooms, maxAdults, type, price, title, isPremium, rating, host, images} = offer;
   const {description} = offer;
   const offers = generateOffers(3);
   const reviews = generateReviews(1);
 
   return <div className="page">
-    <Header />
+    <Header isActiveLink={false} onTitleClick={onTitleClick} />
 
     <main className="page__main page__main--property">
       <section className="property">
@@ -106,13 +132,13 @@ const Details = ({offer}) => {
       <div className="container">
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
-          <PlaceList offers={offers} cardType="near-places" />
+          <PlaceList offers={offers} cardType="near-places" onTitleClick={onTitleClick} />
         </section>
       </div>
     </main>
   </div>;
 };
 
-Details.propTypes = offerPropObject;
+Details.propTypes = offerPropObjectWithCallback;
 
 export default Details;

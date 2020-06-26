@@ -7,12 +7,14 @@ const placePropObject = {
   offer: PropTypes.exact(offerProp),
   onMouseEnter: PropTypes.func.isRequired,
   onMouseLeave: PropTypes.func.isRequired,
-  cardType: cardProp
+  cardType: cardProp,
+  onTitleClick: PropTypes.func.isRequired
 };
 
 const placeListPropObject = {
   offers: offersProp,
-  cardType: cardProp.isRequired
+  cardType: cardProp.isRequired,
+  onTitleClick: PropTypes.func.isRequired
 };
 
 export {placePropObject, placeListPropObject};
