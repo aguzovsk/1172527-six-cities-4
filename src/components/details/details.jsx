@@ -7,7 +7,9 @@ import {generateReviews} from '../../mock/reviews.js';
 import {generateOffers} from '../../mock/offers.js';
 import {ratingToPercentages} from '../../utils.js';
 // import {offerPropObject} from '../../props/offerProp.js';
-import {offerPropObjectWithCallback} from '../../props/offerProp.js';
+// import {offerPropObjectWithCallback} from '../../props/offerProp.js';
+import {offerProp} from '../../props/offerProp.js';
+import PropTypes from 'prop-types';
 
 // const distance = (first, second) => {
 //   const toRad = (degrees) => degrees * Math.PI * 180;
@@ -37,8 +39,8 @@ import {offerPropObjectWithCallback} from '../../props/offerProp.js';
 const Details = ({offer, onTitleClick}) => {
   const {goods, bedrooms, maxAdults, type, price, title, isPremium, rating, host, images} = offer;
   const {description} = offer;
-  const offers = generateOffers(3);
   const reviews = generateReviews(1);
+  const offers = generateOffers(3);
 
   return <div className="page">
     <Header isActiveLink={false} onTitleClick={onTitleClick} />
@@ -139,6 +141,10 @@ const Details = ({offer, onTitleClick}) => {
   </div>;
 };
 
-Details.propTypes = offerPropObjectWithCallback;
+Details.propTypes = {
+  offer: PropTypes.exact(offerProp),
+  // offers: offersProp,
+  onTitleClick: PropTypes.func.isRequired
+};
 
 export default Details;
