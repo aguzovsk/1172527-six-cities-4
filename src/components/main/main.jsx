@@ -4,13 +4,22 @@ import Tabs from '../tabs/tabs.jsx';
 import Header from '../header/header.jsx';
 import PlacesSorting from '../places-sorting/places-sorting.jsx';
 import PlaceList from '../place-list/place-list.jsx';
+import Map from '../map/map.jsx';
+import {cities} from '../../const.js';
 
 // import {offersPropObject} from '../../props/offerProp.js';
 import {offersPropObjectWithCallback} from '../../props/offerProp.js';
 
+const getOffersByCity = (offers, cityName) => {
+  return offers.filter(({city}) => city.name === cityName);
+};
+
+
 const Main = (props) => {
   const {offers, onTitleClick} = props;
   const onTabClickHandler = () => {};
+  const selectedCity = `Amsterdam`;
+  const selectedOffers = getOffersByCity(offers, selectedCity);
 
   return <div className="page page--gray page--main">
     <Header isActiveLink={true} onTitleClick={onTitleClick} />
@@ -27,7 +36,7 @@ const Main = (props) => {
             <PlaceList offers={offers} cardType="cities" onTitleClick={onTitleClick} />
           </section>
           <div className="cities__right-section">
-            <section className="cities__map map"></section>
+            <Map city={cities.get(selectedCity)} offers={selectedOffers} />
           </div>
         </div>
       </div>

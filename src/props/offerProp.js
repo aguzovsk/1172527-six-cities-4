@@ -67,6 +67,7 @@ const offersPropObjectWithCallback = {
   onTitleClick: PropTypes.func.isRequired
 };
 
+export {cityProp};
 export {offerProp, offersProp};
 export {offersPropObject, offerPropObject};
 export {offerPropObjectWithCallback, offersPropObjectWithCallback};

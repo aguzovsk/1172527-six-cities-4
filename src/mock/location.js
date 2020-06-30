@@ -1,31 +1,6 @@
 import {cityNames} from '../const.js';
 import {getRandomIntInRange} from './utils.js';
-
-const cityCoordinates = new Map();
-cityCoordinates.set(`Amsterdam`, {
-  latitude: 52.37454,
-  longitude: 4.897976,
-});
-cityCoordinates.set(`Brussels`, {
-  latitude: 50.846557,
-  longitude: 4.351697,
-});
-cityCoordinates.set(`Cologne`, {
-  latitude: 50.938361,
-  longitude: 6.959974,
-});
-cityCoordinates.set(`Dusseldorf`, {
-  latitude: 51.225402,
-  longitude: 6.776314,
-});
-cityCoordinates.set(`Hamburg`, {
-  latitude: 53.550341,
-  longitude: 10.000654,
-});
-cityCoordinates.set(`Paris`, {
-  latitude: 48.85661,
-  longitude: 2.351499,
-});
+import {cityCoordinates} from '../const.js';
 
 const getRandomCoordinate = (coordinate) => {
   const radius = 0.055;
