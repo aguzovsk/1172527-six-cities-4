@@ -3,7 +3,7 @@ import {getRandomIntInRange} from './utils.js';
 import {cityCoordinates} from '../const.js';
 
 const getRandomCoordinate = (coordinate) => {
-  const radius = 0.055;
+  const radius = 0.04;
   const sign = Math.sign(Math.random() - 0.5);
   const distance = radius * Math.random();
 

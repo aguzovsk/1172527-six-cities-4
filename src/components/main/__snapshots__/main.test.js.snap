@@ -844,8 +844,13 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
         <div
           className="cities__right-section"
         >
-          <section
-            className="cities__map map"
+          <div
+            id="map"
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
           />
         </div>
       </div>

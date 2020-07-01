@@ -2,7 +2,7 @@ import React from 'react';
 import leaflet from 'leaflet';
 import {offersProp, cityProp} from '../../props/offerProp.js';
 
-class Map extends React.PureComponent {
+class Map extends React.Component {
   constructor(props) {
     super(props);
 
@@ -10,17 +10,18 @@ class Map extends React.PureComponent {
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
     });
+
+    this._mapRef = React.createRef();
   }
 
   _getConfiguredMap({location}) {
     const {latitude, longitude, zoom} = location;
     const coordinates = [latitude, longitude];
 
-    const map = leaflet.map(`map`, {
+    const map = leaflet.map(this._mapRef.current, {
       center: coordinates,
       zoom,
-      zoomControl: false,
-      marker: true
+      zoomControl: false
     });
 
     map.setView(coordinates, zoom);
@@ -49,7 +50,7 @@ class Map extends React.PureComponent {
   }
 
   render() {
-    return <section id="map" style={{width: `100%`}}></section>;
+    return <div id="map" ref={this._mapRef} style={{width: `100%`}} />;
   }
 }
 

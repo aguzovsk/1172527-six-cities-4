@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map snapshot test on Amsterdam 1`] = `
+<div
+  id="map"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+/>
+`;
