@@ -5,7 +5,7 @@ import {ratingToPercentages} from '../../utils.js';
 
 const PlaceCard = (props) => {
   const {offer, onMouseLeave, onMouseEnter, cardType, onTitleClick} = props;
-  const {title, type, previewImage, price, rating, isPremium, isFavourite} = offer;
+  const {title, type, previewImage, price, rating, isPremium, isFavorite} = offer;
 
   return <article
     className={`${cardType === `cities` ? `cities__place-card` : `near-places__card`} place-card`}
@@ -26,11 +26,11 @@ const PlaceCard = (props) => {
           <b className="place-card__price-value">{`€${price}`}</b>
           <span className="place-card__price-text">&#47;&nbsp;night</span>
         </div>
-        <button className={`place-card__bookmark-button button ${isFavourite && `place-card__bookmark-button--active`}`} type="button">
+        <button className={`place-card__bookmark-button button ${isFavorite && `place-card__bookmark-button--active`}`} type="button">
           <svg className="place-card__bookmark-icon" width="18" height="19">
             <use xlinkHref="#icon-bookmark"></use>
           </svg>
-          <span className="visually-hidden">{isFavourite ? `In bookmarks` : `To bookmarks`}</span>
+          <span className="visually-hidden">{isFavorite ? `In bookmarks` : `To bookmarks`}</span>
         </button>
       </div>
       <div className="place-card__rating rating">

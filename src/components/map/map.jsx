@@ -52,6 +52,12 @@ class Map extends React.Component {
   render() {
     return <div id="map" ref={this._mapRef} style={{width: `100%`}} />;
   }
+
+  componentWillUnmount() {
+    const map = this._mapRef.current;
+
+    map.remove();
+  }
 }
 
 Map.propTypes = {

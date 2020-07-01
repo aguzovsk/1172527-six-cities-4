@@ -277,7 +277,7 @@ exports[`Test app component App component test with offers mock 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button undefined"
+                    className="place-card__bookmark-button button false"
                     type="button"
                   >
                     <svg
@@ -374,7 +374,7 @@ exports[`Test app component App component test with offers mock 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button undefined"
+                    className="place-card__bookmark-button button place-card__bookmark-button--active"
                     type="button"
                   >
                     <svg
@@ -389,7 +389,7 @@ exports[`Test app component App component test with offers mock 1`] = `
                     <span
                       className="visually-hidden"
                     >
-                      To bookmarks
+                      In bookmarks
                     </span>
                   </button>
                 </div>
@@ -478,7 +478,7 @@ exports[`Test app component App component test with offers mock 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button undefined"
+                    className="place-card__bookmark-button button false"
                     type="button"
                   >
                     <svg
@@ -582,7 +582,7 @@ exports[`Test app component App component test with offers mock 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button undefined"
+                    className="place-card__bookmark-button button place-card__bookmark-button--active"
                     type="button"
                   >
                     <svg
@@ -597,7 +597,7 @@ exports[`Test app component App component test with offers mock 1`] = `
                     <span
                       className="visually-hidden"
                     >
-                      To bookmarks
+                      In bookmarks
                     </span>
                   </button>
                 </div>
@@ -686,7 +686,7 @@ exports[`Test app component App component test with offers mock 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button undefined"
+                    className="place-card__bookmark-button button false"
                     type="button"
                   >
                     <svg
@@ -783,7 +783,7 @@ exports[`Test app component App component test with offers mock 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button undefined"
+                    className="place-card__bookmark-button button false"
                     type="button"
                   >
                     <svg

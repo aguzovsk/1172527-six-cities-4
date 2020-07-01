@@ -42,7 +42,7 @@ exports[`Test PlaceCard component Test PlaceCard with first hotel, i.e. is premi
         </span>
       </div>
       <button
-        className="place-card__bookmark-button button undefined"
+        className="place-card__bookmark-button button false"
         type="button"
       >
         <svg
@@ -142,7 +142,7 @@ exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not pre
         </span>
       </div>
       <button
-        className="place-card__bookmark-button button undefined"
+        className="place-card__bookmark-button button place-card__bookmark-button--active"
         type="button"
       >
         <svg
@@ -157,7 +157,7 @@ exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not pre
         <span
           className="visually-hidden"
         >
-          To bookmarks
+          In bookmarks
         </span>
       </button>
     </div>
@@ -249,7 +249,7 @@ exports[`Test PlaceCard component Test PlaceCard with third hotel, i.e. not prem
         </span>
       </div>
       <button
-        className="place-card__bookmark-button button undefined"
+        className="place-card__bookmark-button button false"
         type="button"
       >
         <svg

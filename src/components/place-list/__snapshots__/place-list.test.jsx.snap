@@ -45,7 +45,7 @@ exports[`Place list component snapshot test 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button undefined"
+          className="place-card__bookmark-button button false"
           type="button"
         >
           <svg
@@ -142,7 +142,7 @@ exports[`Place list component snapshot test 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button undefined"
+          className="place-card__bookmark-button button place-card__bookmark-button--active"
           type="button"
         >
           <svg
@@ -157,7 +157,7 @@ exports[`Place list component snapshot test 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -246,7 +246,7 @@ exports[`Place list component snapshot test 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button undefined"
+          className="place-card__bookmark-button button false"
           type="button"
         >
           <svg
@@ -350,7 +350,7 @@ exports[`Place list component snapshot test 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button undefined"
+          className="place-card__bookmark-button button place-card__bookmark-button--active"
           type="button"
         >
           <svg
@@ -365,7 +365,7 @@ exports[`Place list component snapshot test 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -454,7 +454,7 @@ exports[`Place list component snapshot test 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button undefined"
+          className="place-card__bookmark-button button false"
           type="button"
         >
           <svg
@@ -551,7 +551,7 @@ exports[`Place list component snapshot test 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button undefined"
+          className="place-card__bookmark-button button false"
           type="button"
         >
           <svg
