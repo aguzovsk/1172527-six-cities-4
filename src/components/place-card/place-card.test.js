@@ -15,6 +15,8 @@ describe(`Test PlaceCard component`, () => {
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           onTitleClick={onTitleClick}
+          cardClass="cities__place-card"
+          imageWrapperClass="cities__image-wrapper"
         />
     );
 
@@ -28,6 +30,8 @@ describe(`Test PlaceCard component`, () => {
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           onTitleClick={onTitleClick}
+          cardClass="near-places__card"
+          imageWrapperClass="near-places__image-wrapper"
         />
     );
 
@@ -41,6 +45,8 @@ describe(`Test PlaceCard component`, () => {
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           onTitleClick={onTitleClick}
+          cardClass="near-places__card"
+          imageWrapperClass="near-places__image-wrapper"
         />
     );
 

@@ -18,6 +18,8 @@ describe(`Place card component e2e test suite`, () => {
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           onTitleClick={onTitleClick}
+          cardClass="cities__place-card"
+          imageWrapperClass="cities__image-wrapper"
         />
     );
 
