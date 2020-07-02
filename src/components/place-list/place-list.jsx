@@ -1,6 +1,5 @@
 import React from 'react';
-import PlaceCard from '../place-card/place-card.jsx';
-import {placeListPropObject} from '../../props/placeProp.js';
+import PropTypes from 'prop-types';
 
 const NO_ACTIVE_CARD = Number.EPSILON;
 
@@ -29,22 +28,21 @@ class PlaceList extends React.PureComponent {
   }
 
   render() {
-    const {offers, cardType, onTitleClick} = this.props;
+    // const {offers, cardType, onTitleClick} = this.props;
+    const {listClass, renderCards} = this.props;
+    // className={`places__list ${cardType === `cities` ? `cities__places-list tabs__content` : `near-places__list`}`}
 
-    return <div className={`places__list ${cardType === `cities` ? `cities__places-list tabs__content` : `near-places__list`}`}>
-      {offers.map((offer) => <PlaceCard
-        key={offer.id}
-        offer={offer}
-        cardType={cardType}
-        onMouseEnter={this._mouseEnterHandler}
-        onMouseLeave={this._mouseLeaveHandler}
-        onTitleClick={onTitleClick}
-      />)}
+    return <div className={`places__list ${listClass}`} >
+      {renderCards(this._mouseEnterHandler, this._mouseLeaveHandler)}
     </div>;
   }
 }
 
-PlaceList.propTypes = placeListPropObject;
+// PlaceList.propTypes = placeListPropObject;
+PlaceList.propTypes = {
+  listClass: PropTypes.string.isRequired,
+  renderCards: PropTypes.func.isRequired
+};
 
 export default PlaceList;
 export {NO_ACTIVE_CARD};

@@ -1,16 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import PlaceList from './place-list.jsx';
-import offersAmsterdam from '../../test-mock/offers-amsterdam.js';
 
 it(`Place list component snapshot test`, () => {
-  const onTitleClick = () => {};
+  const renderProp = () => {};
 
   const tree = renderer.create(
       <PlaceList
-        offers={offersAmsterdam}
-        onTitleClick={onTitleClick}
-        cardType="near-places"
+        renderCards={renderProp}
+        listClass="near-places__list"
       />)
     .toJSON();
 

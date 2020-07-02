@@ -4,18 +4,19 @@ import {typeTextUnfold} from '../../utils.js';
 import {ratingToPercentages} from '../../utils.js';
 
 const PlaceCard = (props) => {
-  const {offer, onMouseLeave, onMouseEnter, cardType, onTitleClick} = props;
+  const {offer, onMouseLeave, onMouseEnter, onTitleClick} = props;
   const {title, type, previewImage, price, rating, isPremium, isFavorite} = offer;
+  const {cardClass, imageWrapperClass} = props;
 
   return <article
-    className={`${cardType === `cities` ? `cities__place-card` : `near-places__card`} place-card`}
+    className={`${cardClass} place-card`}
     onMouseEnter={() => onMouseEnter(offer)}
     onMouseLeave={() => onMouseLeave()}
   >
     {isPremium && <div className="place-card__mark">
       <span>Premium</span>
     </div>}
-    <div className={`${cardType}__image-wrapper place-card__image-wrapper`}>
+    <div className={`${imageWrapperClass} place-card__image-wrapper`}>
       <a href="#">
         <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image" />
       </a>

@@ -3,7 +3,7 @@ import React from 'react';
 import Tabs from '../tabs/tabs.jsx';
 import Header from '../header/header.jsx';
 import PlacesSorting from '../places-sorting/places-sorting.jsx';
-import PlaceList from '../place-list/place-list.jsx';
+import PlaceListCities from '../place-list-cities/place-list-cities.jsx';
 import Map from '../map/map.jsx';
 import {cities} from '../../const.js';
 
@@ -33,7 +33,7 @@ const Main = (props) => {
             <h2 className="visually-hidden">Places</h2>
             <b className="places__found">{offers.length} places to stay in Amsterdam</b>
             <PlacesSorting />
-            <PlaceList offers={offers} cardType="cities" onTitleClick={onTitleClick} />
+            <PlaceListCities offers={offers} onTitleClick={onTitleClick} />
           </section>
           <div className="cities__right-section">
             <Map city={cities.get(selectedCity)} offers={selectedOffers} />

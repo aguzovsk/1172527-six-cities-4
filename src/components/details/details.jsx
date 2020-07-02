@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../header/header.jsx';
 import {typeTextUnfold} from '../../utils.js';
-import PlaceList from '../place-list/place-list.jsx';
+import PlaceListNearest from '../place-list-nearest/place-list-nearest.jsx';
 import Reviews from '../reviews/reviews.jsx';
 import {generateReviews} from '../../mock/reviews.js';
 import {generateOffers} from '../../mock/offers.js';
@@ -134,7 +134,7 @@ const Details = ({offer, onTitleClick}) => {
       <div className="container">
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
-          <PlaceList offers={offers} cardType="near-places" onTitleClick={onTitleClick} />
+          <PlaceListNearest offers={offers} onTitleClick={onTitleClick} />
         </section>
       </div>
     </main>

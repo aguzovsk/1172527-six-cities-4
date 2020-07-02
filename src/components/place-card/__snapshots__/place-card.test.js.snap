@@ -2,12 +2,12 @@
 
 exports[`Test PlaceCard component Test PlaceCard with first hotel, i.e. is premium, not favourite 1`] = `
 <article
-  className="near-places__card place-card"
+  className="undefined place-card"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <div
-    className="undefined__image-wrapper place-card__image-wrapper"
+    className="undefined place-card__image-wrapper"
   >
     <a
       href="#"
@@ -102,12 +102,12 @@ exports[`Test PlaceCard component Test PlaceCard with first hotel, i.e. is premi
 
 exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not premium, is favourite 1`] = `
 <article
-  className="near-places__card place-card"
+  className="undefined place-card"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <div
-    className="undefined__image-wrapper place-card__image-wrapper"
+    className="undefined place-card__image-wrapper"
   >
     <a
       href="#"
@@ -202,7 +202,7 @@ exports[`Test PlaceCard component Test PlaceCard with second hotel, i.e. not pre
 
 exports[`Test PlaceCard component Test PlaceCard with third hotel, i.e. not premium, not favourite 1`] = `
 <article
-  className="near-places__card place-card"
+  className="undefined place-card"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
@@ -214,7 +214,7 @@ exports[`Test PlaceCard component Test PlaceCard with third hotel, i.e. not prem
     </span>
   </div>
   <div
-    className="undefined__image-wrapper place-card__image-wrapper"
+    className="undefined place-card__image-wrapper"
   >
     <a
       href="#"

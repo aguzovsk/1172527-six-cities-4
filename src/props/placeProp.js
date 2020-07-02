@@ -1,20 +1,28 @@
 import PropTypes from 'prop-types';
 import {offerProp, offersProp} from './offerProp.js';
 
-const cardProp = PropTypes.oneOf([`cities`, `near-places`]);
+// const cardProp = PropTypes.oneOf([`cities`, `near-places`]);
 
-const placePropObject = {
+const placePropGeneric = {
   offer: PropTypes.exact(offerProp),
   onMouseEnter: PropTypes.func.isRequired,
   onMouseLeave: PropTypes.func.isRequired,
-  cardType: cardProp,
   onTitleClick: PropTypes.func.isRequired
 };
 
-const placeListPropObject = {
+const placePropObject = Object.assign({}, placePropGeneric, {
+  cardClass: PropTypes.string.isRequired,
+  imageWrapperClass: PropTypes.string.isRequired
+});
+
+const placeListPropGeneric = {
   offers: offersProp,
-  cardType: cardProp.isRequired,
   onTitleClick: PropTypes.func.isRequired
 };
 
-export {placePropObject, placeListPropObject};
+// const placeListPropObject = Object.assign({}, placeListPropGeneric, {
+
+// });
+
+export {placePropGeneric, placeListPropGeneric};
+export {placePropObject};
