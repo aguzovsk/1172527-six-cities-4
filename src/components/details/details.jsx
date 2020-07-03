@@ -3,38 +3,12 @@ import Header from '../header/header.jsx';
 import {typeTextUnfold} from '../../utils.js';
 import PlaceListNearest from '../place-list-nearest/place-list-nearest.jsx';
 import Reviews from '../reviews/reviews.jsx';
+import MapProperty from '../map-property/map-property.jsx';
 import {generateReviews} from '../../mock/reviews.js';
 import {generateOffers} from '../../mock/offers.js';
 import {ratingToPercentages} from '../../utils.js';
-// import {offerPropObject} from '../../props/offerProp.js';
-// import {offerPropObjectWithCallback} from '../../props/offerProp.js';
 import {offerProp} from '../../props/offerProp.js';
 import PropTypes from 'prop-types';
-
-// const distance = (first, second) => {
-//   const toRad = (degrees) => degrees * Math.PI * 180;
-
-//   const haversineFormula = (lat1, lat2, lon1, lon2) => {
-//     const R = 6371e3;
-//     const φ1 = toRad(lat1);
-//     const φ2 = toRad(lat2);
-//     const Δφ = toRad(lat2 - lat1);
-//     const Δλ = toRad(lon2 - lon1);
-
-//     const sinHalfΔφ = Math.sin(Δφ/2);
-//     const sinHalfΔλ = Math.sin(Δλ/2);
-
-//     const a = sinHalfΔφ * sinHalfΔφ + Math.cos(φ1) * Math.cos(φ2) * sinHalfΔλ *sinHalfΔλ;
-//     const c = 2 * Math.atan2(Math.sqrt(a, Math.sqrt(1-a)));
-
-//     return R * c;
-//   };
-
-//   const {latitude: lat1, longitude: lon1} = first;
-//   const {latitude: lat2, longitude: lon2} = second;
-
-//   return haversineFormula(lat1, lat2, lon1, lon2);
-// };
 
 const Details = ({offer, onTitleClick}) => {
   const {goods, bedrooms, maxAdults, type, price, title, isPremium, rating, host, images} = offer;
@@ -110,8 +84,8 @@ const Details = ({offer, onTitleClick}) => {
             <div className="property__host">
               <h2 className="property__host-title">Meet the host</h2>
               <div className="property__host-user user">
-                <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-                  <img className="property__avatar user__avatar" src="img/avatar-angelina.jpg" width="74" height="74" alt="Host avatar" />
+                <div className={`property__avatar-wrapper ${host.isPro && `property__avatar-wrapper--pro`} user__avatar-wrapper`}>
+                  <img className="property__avatar user__avatar" src={host.avatar} width="74" height="74" alt="Host avatar" />
                 </div>
                 <span className="property__user-name">
                   {host.name}
@@ -129,7 +103,7 @@ const Details = ({offer, onTitleClick}) => {
             <Reviews reviews={reviews} />
           </div>
         </div>
-        <section className="property__map map"></section>
+        <MapProperty offers={offers} currentPlace={offer} />
       </section>
       <div className="container">
         <section className="near-places places">
@@ -143,7 +117,6 @@ const Details = ({offer, onTitleClick}) => {
 
 Details.propTypes = {
   offer: PropTypes.exact(offerProp),
-  // offers: offersProp,
   onTitleClick: PropTypes.func.isRequired
 };
 

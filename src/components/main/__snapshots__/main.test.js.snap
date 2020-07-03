@@ -845,6 +845,7 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
           className="cities__right-section"
         >
           <div
+            className="map cities__map"
             id="map"
             style={
               Object {

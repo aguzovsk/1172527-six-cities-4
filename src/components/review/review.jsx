@@ -1,6 +1,6 @@
 import React from 'react';
 import {ratingToPercentages} from '../../utils.js';
-import {getYearMonthDay, getMonthYear} from '../../utils.js';
+import {getYearMonthDay, getMonthDayYear} from '../../utils.js';
 import {reviewPropObject} from '../../props/reviewProp.js';
 
 const Review = ({review}) => {
@@ -25,7 +25,7 @@ const Review = ({review}) => {
       <p className="reviews__text">
         {comment}
       </p>
-      <time className="reviews__time" dateTime={getYearMonthDay(date)}>{getMonthYear(date)}</time>
+      <time className="reviews__time" dateTime={getYearMonthDay(date)}>{getMonthDayYear(date)}</time>
     </div>
   </li>;
 };
