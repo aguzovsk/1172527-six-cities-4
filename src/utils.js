@@ -13,4 +13,8 @@ export const getYearMonthDay = (date) => date
 export const getMonthDayYear = (date) =>
   `${date.getMonth()} ${date.getDate()}, ${date.getFullYear()}`;
 
+export const extend = (a, b) => {
+  return Object.assign({}, a, b);
+};
+
 export {typeTextUnfold, ratingToPercentages, capitalize};

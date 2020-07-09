@@ -13,13 +13,13 @@ const locationItem = (name, isActive, handler) => {
 };
 
 const Tabs = (props) => {
-  const {onTabClickHandler} = props;
+  const {onLogoClick} = props;
 
   return <div className="tabs">
     <section className="locations container">
       <ul className="locations__list tabs__list">
         {cityNames.map(
-            (name) => locationItem(name, name === `Amsterdam`, onTabClickHandler)
+            (name) => locationItem(name, name === `Amsterdam`, onLogoClick)
         )}
       </ul>
     </section>
@@ -27,7 +27,7 @@ const Tabs = (props) => {
 };
 
 Tabs.propTypes = {
-  onTabClickHandler: PropTypes.func.isRequired,
+  onLogoClick: PropTypes.func.isRequired,
 };
 
 export default Tabs;
