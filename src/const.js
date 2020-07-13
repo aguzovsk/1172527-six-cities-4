@@ -35,6 +35,13 @@ const cities = cityNames.map((name) => ({
   return map;
 }, new Map());
 
+export const SortTypes = {
+  DEFAULT: `popular`,
+  TO_HIGH: `to-high`,
+  TO_LOW: `to-low`,
+  TOP: `top-rated`
+};
+
 // const imgPath = `img`;
 // const imageNames = [`apartment-01.jpg`, `apartment-02.jpg`, `apartment-03.jpg`, `room.jpg`, `studio-01.jpg`];
 

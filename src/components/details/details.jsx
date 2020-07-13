@@ -1,23 +1,23 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import Header from '../header/header.jsx';
 import {typeTextUnfold} from '../../utils.js';
 import PlaceListNearest from '../place-list-nearest/place-list-nearest.jsx';
 import Reviews from '../reviews/reviews.jsx';
 import MapProperty from '../map-property/map-property.jsx';
-import {generateReviews} from '../../mock/reviews.js';
-import {generateOffers} from '../../mock/offers.js';
 import {ratingToPercentages} from '../../utils.js';
-import {offerProp} from '../../props/offerProp.js';
+import {offerProp, offersProp} from '../../props/offerProp.js';
 import PropTypes from 'prop-types';
+import {reviewsProp} from '../../props/reviewProp';
 
-const Details = ({offer, onTitleClick}) => {
+const Details = (props) => {
+  const {offer, onTitleClick} = props;
   const {goods, bedrooms, maxAdults, type, price, title, isPremium, rating, host, images} = offer;
   const {description} = offer;
-  const reviews = generateReviews(1);
-  const offers = generateOffers(3);
+  const {reviews, offers} = props;
 
   return <div className="page">
-    <Header isActiveLink={false} onTitleClick={onTitleClick} />
+    <Header />
 
     <main className="page__main page__main--property">
       <section className="property">
@@ -117,7 +117,16 @@ const Details = ({offer, onTitleClick}) => {
 
 Details.propTypes = {
   offer: PropTypes.exact(offerProp),
-  onTitleClick: PropTypes.func.isRequired
+  onTitleClick: PropTypes.func.isRequired,
+  reviews: reviewsProp,
+  offers: offersProp
 };
 
-export default Details;
+const mapStateToProps = (state) => ({
+  offers: state.offers.slice(0, 3),
+  reviews: state.reviews,
+  offer: state.currentOffer
+});
+
+export {Details};
+export default connect(mapStateToProps)(Details);

@@ -1,14 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {useLocation, matchPath} from 'react-router-dom';
 
-const Header = ({onTitleClick, isActiveLink}) => {
-  const userName = `Oliver.conner@gmail.com`;
+import {connect} from 'react-redux';
+import {ActionCreator} from "../../reducer.js";
+
+const Header = ({onLogoClick, accountName}) => {
+  const location = useLocation();
+  const match = matchPath(location.pathname, {
+    path: `/details`,
+    exact: true
+  });
+  const isActiveLink = match === null;
 
   return <header className="header">
     <div className="container">
       <div className="header__wrapper">
         <div className="header__left">
-          <a className={`header__logo-link ${isActiveLink ? `header__logo-link--active` : ``}`} onClick={() => onTitleClick()}>
+          <a className={`header__logo-link ${isActiveLink ? `header__logo-link--active` : ``}`} onClick={() => onLogoClick()}>
             <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
           </a>
         </div>
@@ -18,7 +27,8 @@ const Header = ({onTitleClick, isActiveLink}) => {
               <a className="header__nav-link header__nav-link--profile" href="#">
                 <div className="header__avatar-wrapper user__avatar-wrapper">
                 </div>
-                <span className="header__user-name user__name">{userName}</span>
+                {accountName ? <span className="header__user-name user__name">{accountName}</span> :
+                  <span className="header__login">Sign in</span>}
               </a>
             </li>
           </ul>
@@ -29,8 +39,19 @@ const Header = ({onTitleClick, isActiveLink}) => {
 };
 
 Header.propTypes = {
-  onTitleClick: PropTypes.func.isRequired,
-  isActiveLink: PropTypes.bool.isRequired
+  onLogoClick: PropTypes.func.isRequired,
+  accountName: PropTypes.string
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  accountName: state.accountName
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onLogoClick() {
+    dispatch(ActionCreator.backToMain());
+  },
+});
+
+export {Header};
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

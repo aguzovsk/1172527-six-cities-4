@@ -9,12 +9,15 @@ const reviewProp = {
   date: PropTypes.instanceOf(Date)
 };
 
+const reviewsProp = PropTypes.arrayOf(PropTypes.exact(reviewProp));
+
 const reviewPropObject = {
   review: PropTypes.exact(reviewProp)
 };
 
 const reviewsPropObject = {
-  reviews: PropTypes.arrayOf(PropTypes.exact(reviewProp)).isRequired
+  reviews: reviewsProp.isRequired
 };
 
+export {reviewsProp};
 export {reviewPropObject, reviewsPropObject};

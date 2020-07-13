@@ -72,7 +72,6 @@ Map.propTypes = {
   city: cityProp,
   offers: offersProp,
   mapClass: PropTypes.string,
-  // currentPlace: offerProp,
   currentPlace: PropTypes.oneOfType([PropTypes.exact(offerProp), PropTypes.oneOf([``])])
 };
 

@@ -62,7 +62,7 @@ const generateOffer = () => setLocation({
 
 
 const generateOffers = (num) => {
-  const len = num || getRandomIntInRange(5, 15);
+  const len = num || getRandomIntInRange(5, 150);
 
   return new Array(len).fill(``).map(() => generateOffer());
 };

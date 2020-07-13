@@ -1,23 +1,28 @@
 import {extend} from './utils.js';
-import generateOffers from './mock/offers.js';
-import {cityCoordinates} from './const.js';
-// import cityCoordinates from './const.js';
+import {generateOffers} from './mock/offers.js';
+import {cities, SortTypes} from './const.js';
+import {generateReviews} from './mock/reviews.js';
 
-const UNSELECTED_OFFER = -1;
+const UNSELECTED_OFFER = null;
+
+const generatedOffers = generateOffers();
 
 const initialState = {
   currentOffer: UNSELECTED_OFFER,
-  currentCity: cityCoordinates.get(`Amsterdam`),
-  offers: generateOffers()
+  currentCity: cities.get(`Amsterdam`),
+  offers: generatedOffers,
+  reviews: generateReviews(1),
+  sortType: SortTypes.DEFAULT,
+  accountName: `Oliver.conner@gmail.com`,
+  citiesList: Array.from(cities.keys())
 };
 
 const ActionType = {
   SET_OFFER: `SET_OFFER`,
   SET_CITY: `SET_CITY`,
-  // GET_OFFERS: `GET_OFFERS`,
-  // GET_OFFER: `GET_OFFER`,
-  // GET_CITIES: `GET_CITIES`,
-  BACK_TO_MAIN: `BACK_TO_MAIN`
+  BACK_TO_MAIN: `BACK_TO_MAIN`,
+  TO_LOGIN_PAGE: `TO_LOGIN_PAGE`,
+  CHANGE_SORTING: `CHANGE_SORTING`,
 };
 
 const ActionCreator = {
@@ -27,18 +32,16 @@ const ActionCreator = {
   }),
   setOffer: (offer) => ({
     type: ActionType.SET_OFFER,
-    payload: offer.id
+    payload: offer
   }),
   backToMain: () => ({
     type: ActionType.BACK_TO_MAIN,
     payload: UNSELECTED_OFFER
   }),
-  /* getOffers: () => ({
-    type: ActionType.GET_OFFERS,
-  }),
-  getCities: () => ({
-    type: ActionType.GET_CITIES,
-  }), */
+  changeSorting: (sortType) => ({
+    type: ActionType.CHANGE_SORTING,
+    payload: sortType
+  })
 };
 
 const reducer = (state = initialState, action) => {
@@ -48,12 +51,12 @@ const reducer = (state = initialState, action) => {
         currentOffer: action.payload
       });
     case ActionType.SET_CITY:
-      if (state.currentCity === action.payload) {
+      if (state.currentCity.name === action.payload) {
         return state;
       }
 
       return extend(state, {
-        currentCity: action.payload
+        currentCity: cities.get(action.payload)
       });
     case ActionType.BACK_TO_MAIN:
       if (state.currentOffer === UNSELECTED_OFFER) {
@@ -62,6 +65,15 @@ const reducer = (state = initialState, action) => {
 
       return extend(state, {
         currentOffer: action.payload
+      });
+
+    case ActionType.CHANGE_SORTING:
+      if (state.sortType === action.payload) {
+        return state;
+      }
+
+      return extend(state, {
+        sortType: action.payload
       });
   }
 

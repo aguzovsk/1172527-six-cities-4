@@ -1,33 +1,47 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {cityNames} from '../../const.js';
+import {connect} from 'react-redux';
+import {ActionCreator} from '../../reducer';
+import tabsPropType from '../../props/tabsProp.js';
 
 const locationItem = (name, isActive, handler) => {
   const lowerCase = name.toLowerCase();
 
-  return <li key={name} className={`locations__item ${lowerCase}`} onClick={handler}>
-    <a className={`locations__item-link tabs__item ${isActive && `tabs__item--active`}`} href="#">
+  return <li key={name} className={`locations__item ${lowerCase}`} >
+    <a className={`locations__item-link tabs__item ${isActive && `tabs__item--active`}`}
+      href="#" onClick={(evt) => {evt.persist(); handler(evt)}} >
       <span>{name}</span>
     </a>
   </li>;
 };
 
 const Tabs = (props) => {
-  const {onLogoClick} = props;
+  const {onCityClick} = props;
+  const {citiesList, currentCity} = props;
 
   return <div className="tabs">
     <section className="locations container">
       <ul className="locations__list tabs__list">
-        {cityNames.map(
-            (name) => locationItem(name, name === `Amsterdam`, onLogoClick)
+        {citiesList.map(
+            (name) => locationItem(name, name === currentCity.name, onCityClick)
         )}
       </ul>
     </section>
   </div>;
 };
 
-Tabs.propTypes = {
-  onLogoClick: PropTypes.func.isRequired,
-};
+Tabs.propTypes = tabsPropType;
 
-export default Tabs;
+const mapStateToProps = (state) => ({
+  currentCity: state.currentCity,
+  citiesList: state.citiesList
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onCityClick(evt) {
+    const city = evt.target.innerText;
+    dispatch(ActionCreator.setCity(city));
+  }
+});
+
+export {Tabs};
+export default connect(mapStateToProps, mapDispatchToProps)(Tabs);
