@@ -58,7 +58,7 @@ const generateOffer = () => setLocation({
   goods: generateGoods(),
   host: generatePerson(),
   description: generateText(),
-}, `Amsterdam`);
+});
 
 
 const generateOffers = (num) => {

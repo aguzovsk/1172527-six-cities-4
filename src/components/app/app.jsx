@@ -5,7 +5,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {offersPropObject} from '../../props/offerProp.js';
 
 import {connect} from "react-redux";
-import {ActionCreator, UNSELECTED_OFFER} from '../../reducer.js';
+import {ActionCreator} from '../../reducer.js';
 
 class App extends React.PureComponent {
   constructor(props) {

@@ -28,7 +28,6 @@ const PlaceListCities = (props) => {
 PlaceListCities.propTypes = placeListPropGeneric;
 
 const mapStateToProps = (state) => ({
-  offers: state.offers,
   sortType: state.sortType
 });
 

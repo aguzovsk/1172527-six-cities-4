@@ -2,6 +2,7 @@ import React from 'react';
 import leaflet from 'leaflet';
 import PropTypes from 'prop-types';
 import {offersProp, cityProp, offerProp} from '../../props/offerProp.js';
+import PlaceCard from '../place-card/place-card.jsx';
 
 class Map extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class Map extends React.Component {
     });
 
     this._mapRef = React.createRef();
+    this._map = null;
   }
 
   _getConfiguredMap({location}) {
@@ -39,26 +41,63 @@ class Map extends React.Component {
     return map;
   }
 
-  _getCoordinatesFromOffers(offers) {
-    return offers.map(({location}) => [location.latitude, location.longitude]);
-  }
+  // _getCoordinatesFromOffers(offers) {
+  //   return offers.map(({location}) => [location.latitude, location.longitude]);
+  // }
 
-  _addCoordinatesToMap(map, coordinates) {
-    coordinates.forEach((coordinateArray) =>
-      leaflet.marker(coordinateArray, {icon: this._icon}).addTo(map)
+  _addCoordinatesToMap(map, offers) {
+    const dummy = () => {};
+    offers.forEach((offer) => {
+        const loc = offer.location;
+        const coordinateArray = [loc.latitude, loc.longitude];
+        const popup = leaflet.popup().setContent(
+          <PlaceCard
+            onMouseLeave={dummy}
+            onMouseEnter={dummy}
+            onTitleClick={dummy}
+            offer={offer}
+            cardClass="cities__place-card"
+            imageWrapperClass="cities__image-wrapper"
+          />
+        );
+        leaflet.marker(coordinateArray, {
+          icon: this._icon,
+          title: offer.title,
+        }).addTo(map).bindPopup(popup);
+      }
     );
   }
 
-  componentDidMount() {
-    const {currentPlace, city} = this.props;
+  print(props) {
+    const {currentPlace, city} = props;
     const map = this._getConfiguredMap(currentPlace || city);
-    const coordinates = this._getCoordinatesFromOffers(this.props.offers);
+    // const coordinates = this._getCoordinatesFromOffers(props.offers);
 
-    this._addCoordinatesToMap(map, coordinates);
+    this._addCoordinatesToMap(map, props.offers);
+
+    this._map = map;
+  }
+
+  componentDidMount() {
+    this.print(this.props);
   }
 
   render() {
     return <div id="map" className={`map ${this.props.mapClass}`} ref={this._mapRef} style={{width: `100%`}} />;
+  }
+
+  componentWillUpdate(nextProps) {
+    this._addCoordinatesToMap(this._map, nextProps.offers);
+    const location = nextProps.city.location;
+    const coord = [location.latitude, location.longitude];
+    leaflet.marker(coord, {icon: this._iconActive}).addTo(this._map);
+    this._map.panTo(coord, {
+      animate: true,
+      duration: 3,
+      easeLinearity: 4,
+      noMoveStart: true
+    });
+
   }
 
   componentWillUnmount() {

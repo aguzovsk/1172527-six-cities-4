@@ -8,7 +8,9 @@ const locationItem = (name, isActive, handler) => {
 
   return <li key={name} className={`locations__item ${lowerCase}`} >
     <a className={`locations__item-link tabs__item ${isActive && `tabs__item--active`}`}
-      href="#" onClick={(evt) => {evt.persist(); handler(evt)}} >
+      href="#" onClick={(evt) => {
+        evt.persist(); handler(evt);
+      }} >
       <span>{name}</span>
     </a>
   </li>;

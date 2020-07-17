@@ -25,9 +25,9 @@ const Main = (props) => {
         <div className="cities__places-container container">
           <section className="cities__places places">
             <h2 className="visually-hidden">Places</h2>
-            <b className="places__found">{offers.length} places to stay in {currentCity.name}</b>
+            <b className="places__found">{selectedOffers.length} places to stay in {currentCity.name}</b>
             <PlacesSorting />
-            <PlaceListCities />
+            <PlaceListCities offers={selectedOffers} />
           </section>
           <div className="cities__right-section">
             <Map city={currentCity} offers={selectedOffers} />
