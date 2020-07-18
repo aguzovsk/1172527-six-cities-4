@@ -2,7 +2,6 @@ import React from 'react';
 import leaflet from 'leaflet';
 import PropTypes from 'prop-types';
 import {offersProp, cityProp, offerProp} from '../../props/offerProp.js';
-import PlaceCard from '../place-card/place-card.jsx';
 
 class Map extends React.Component {
   constructor(props) {
@@ -41,39 +40,23 @@ class Map extends React.Component {
     return map;
   }
 
-  // _getCoordinatesFromOffers(offers) {
-  //   return offers.map(({location}) => [location.latitude, location.longitude]);
-  // }
-
   _addCoordinatesToMap(map, offers) {
-    const dummy = () => {};
     offers.forEach((offer) => {
-        const loc = offer.location;
-        const coordinateArray = [loc.latitude, loc.longitude];
-        const popup = leaflet.popup().setContent(
-          <PlaceCard
-            onMouseLeave={dummy}
-            onMouseEnter={dummy}
-            onTitleClick={dummy}
-            offer={offer}
-            cardClass="cities__place-card"
-            imageWrapperClass="cities__image-wrapper"
-          />
-        );
-        leaflet.marker(coordinateArray, {
-          icon: this._icon,
-          title: offer.title,
-        }).addTo(map).bindPopup(popup);
-      }
-    );
+      const loc = offer.location;
+      const coordinateArray = [loc.latitude, loc.longitude];
+      leaflet.marker(coordinateArray, {
+        icon: this._icon,
+        title: offer.title,
+      }).addTo(map);
+    });
   }
 
   print(props) {
-    const {currentPlace, city} = props;
-    const map = this._getConfiguredMap(currentPlace || city);
+    const {city, offers} = props;
+    const map = this._getConfiguredMap(city);
     // const coordinates = this._getCoordinatesFromOffers(props.offers);
 
-    this._addCoordinatesToMap(map, props.offers);
+    this._addCoordinatesToMap(map, offers);
 
     this._map = map;
   }
@@ -86,25 +69,30 @@ class Map extends React.Component {
     return <div id="map" className={`map ${this.props.mapClass}`} ref={this._mapRef} style={{width: `100%`}} />;
   }
 
-  componentWillUpdate(nextProps) {
-    this._addCoordinatesToMap(this._map, nextProps.offers);
-    const location = nextProps.city.location;
+  componentDidUpdate() {
+    const location = this.props.city.location;
     const coord = [location.latitude, location.longitude];
-    leaflet.marker(coord, {icon: this._iconActive}).addTo(this._map);
     this._map.panTo(coord, {
       animate: true,
       duration: 3,
       easeLinearity: 4,
       noMoveStart: true
     });
-
   }
 
-  componentWillUnmount() {
-    const map = this._mapRef.current;
+  // componentWillUpdate(nextProps) {
+  //   this._addCoordinatesToMap(this._map, nextProps.offers);
+  //   const location = nextProps.city.location;
+  //   const coord = [location.latitude, location.longitude];
+  //   leaflet.marker(coord, {icon: this._iconActive}).addTo(this._map);
+  //   this._map.panTo(coord, {
+  //     animate: true,
+  //     duration: 3,
+  //     easeLinearity: 4,
+  //     noMoveStart: true
+  //   });
 
-    map.remove();
-  }
+  // }
 }
 
 Map.propTypes = {
@@ -112,11 +100,6 @@ Map.propTypes = {
   offers: offersProp,
   mapClass: PropTypes.string,
   currentPlace: PropTypes.oneOfType([PropTypes.exact(offerProp), PropTypes.oneOf([``])])
-};
-
-Map.defaultProps = {
-  currentPlace: ``,
-  mapClass: `cities__map`
 };
 
 export default Map;

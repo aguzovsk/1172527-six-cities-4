@@ -1,13 +1,33 @@
 import React from 'react';
 import {configure, mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import App from './app.jsx';
+import {App} from './app.jsx';
+
+import {Provider} from 'react-redux';
+import configureStore from 'redux-mock-store';
+
+import {cities, SortTypes} from '../../const.js';
 import offersAmsterdam from '../../test-mock/offers-amsterdam.js';
 
 configure({adapter: new Adapter()});
+const mockStore = configureStore([]);
 
 it(`e2e test app`, () => {
-  const app = mount(<App offers={offersAmsterdam} />);
+  const store = mockStore({
+    // currentOffer: null,
+    currentCity: cities.get(`Amsterdam`),
+    offers: offersAmsterdam,
+    // reviews: null,
+    sortType: SortTypes.DEFAULT,
+    accountName: `Oliver.conner@gmail.com`,
+    citiesList: Array.from(cities.keys())
+  });
+
+  const app = mount(
+    <Provider store={store} >
+      <App offers={offersAmsterdam} />
+    </Provider>
+  );
 
   const firstTitle = app.first(`.place-card__name a`);
   firstTitle.simulate(`click`);

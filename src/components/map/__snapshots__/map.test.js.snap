@@ -2,7 +2,7 @@
 
 exports[`Map snapshot test on Amsterdam 1`] = `
 <div
-  className="map cities__map"
+  className="map undefined"
   id="map"
   style={
     Object {
