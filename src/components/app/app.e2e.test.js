@@ -14,19 +14,21 @@ const mockStore = configureStore([]);
 
 it(`e2e test app`, () => {
   const store = mockStore({
-    // currentOffer: null,
+    currentOffer: undefined,
     currentCity: cities.get(`Amsterdam`),
     offers: offersAmsterdam,
-    // reviews: null,
+    reviews: [],
     sortType: SortTypes.DEFAULT,
     accountName: `Oliver.conner@gmail.com`,
     citiesList: Array.from(cities.keys())
   });
 
+  const dummy = () => {};
+
   const app = mount(
-    <Provider store={store} >
-      <App offers={offersAmsterdam} />
-    </Provider>
+      <Provider store={store} >
+        <App offers={offersAmsterdam} onCityChange={dummy} onTitleClick={dummy} onLogoClick={dummy} />
+      </Provider>
   );
 
   const firstTitle = app.first(`.place-card__name a`);

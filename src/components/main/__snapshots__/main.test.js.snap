@@ -46,9 +46,9 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
                   className="header__avatar-wrapper user__avatar-wrapper"
                 />
                 <span
-                  className="header__user-name user__name"
+                  className="header__login"
                 >
-                  Oliver.conner@gmail.com
+                  Sign in
                 </span>
               </a>
             </li>
@@ -76,11 +76,11 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
         >
           <li
             className="locations__item paris"
-            onClick={[Function]}
           >
             <a
               className="locations__item-link tabs__item false"
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Paris
@@ -89,11 +89,11 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
           </li>
           <li
             className="locations__item cologne"
-            onClick={[Function]}
           >
             <a
               className="locations__item-link tabs__item false"
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Cologne
@@ -102,11 +102,11 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
           </li>
           <li
             className="locations__item brussels"
-            onClick={[Function]}
           >
             <a
               className="locations__item-link tabs__item false"
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Brussels
@@ -115,11 +115,11 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
           </li>
           <li
             className="locations__item amsterdam"
-            onClick={[Function]}
           >
             <a
               className="locations__item-link tabs__item tabs__item--active"
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Amsterdam
@@ -128,11 +128,11 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
           </li>
           <li
             className="locations__item hamburg"
-            onClick={[Function]}
           >
             <a
               className="locations__item-link tabs__item false"
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Hamburg
@@ -141,11 +141,11 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
           </li>
           <li
             className="locations__item dusseldorf"
-            onClick={[Function]}
           >
             <a
               className="locations__item-link tabs__item false"
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Dusseldorf
@@ -159,7 +159,7 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
       className="cities"
     >
       <div
-        className="cities__places-container container"
+        className="cities__places-container  container"
       >
         <section
           className="cities__places places"
@@ -173,7 +173,8 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
             className="places__found"
           >
             6
-             places to stay in Amsterdam
+             places to stay in 
+            Amsterdam
           </b>
           <form
             action="#"
@@ -187,9 +188,9 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
             </span>
             <span
               className="places__sorting-type"
+              onClick={[Function]}
               tabIndex="0"
             >
-              popular
               <svg
                 className="places__sorting-arrow"
                 height="4"
@@ -201,11 +202,12 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
               </svg>
             </span>
             <ul
-              className="places__options places__options--custom places__options--opened"
+              className="places__options places__options--custom"
             >
               <li
-                className="places__option places__option--active"
+                className="places__option false"
                 data-value="popular"
+                onClick={[Function]}
                 tabIndex="0"
               >
                 Popular
@@ -213,6 +215,7 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
               <li
                 className="places__option false"
                 data-value="to-high"
+                onClick={[Function]}
                 tabIndex="0"
               >
                 Price: low to high
@@ -220,6 +223,7 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
               <li
                 className="places__option false"
                 data-value="to-low"
+                onClick={[Function]}
                 tabIndex="0"
               >
                 Price: high to low
@@ -227,6 +231,7 @@ exports[`Test main component Main is being tested with offers mock 1`] = `
               <li
                 className="places__option false"
                 data-value="top-rated"
+                onClick={[Function]}
                 tabIndex="0"
               >
                 Top rated first
