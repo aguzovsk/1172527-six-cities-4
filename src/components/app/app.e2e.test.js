@@ -9,13 +9,17 @@ import configureStore from 'redux-mock-store';
 import {cities, SortTypes} from '../../const.js';
 import offersAmsterdam from '../../test-mock/offers-amsterdam.js';
 
+import {MemoryRouter} from 'react-router-dom';
+import entries from '../../test-mock/routerEntries';
+
 configure({adapter: new Adapter()});
 const mockStore = configureStore([]);
+const amsterdam = cities.get(`Amsterdam`);
 
 it(`e2e test app`, () => {
   const store = mockStore({
     currentOffer: undefined,
-    currentCity: cities.get(`Amsterdam`),
+    currentCity: amsterdam,
     offers: offersAmsterdam,
     reviews: [],
     sortType: SortTypes.DEFAULT,
@@ -26,9 +30,18 @@ it(`e2e test app`, () => {
   const dummy = () => {};
 
   const app = mount(
-      <Provider store={store} >
-        <App offers={offersAmsterdam} onCityChange={dummy} onTitleClick={dummy} onLogoClick={dummy} />
-      </Provider>
+      <MemoryRouter initialEntries={entries} initialIndex={0} >
+        <Provider store={store}>
+          <App
+            offers={offersAmsterdam}
+            currentCity={amsterdam}
+            currentOffer={undefined}
+            onCityChange={dummy}
+            onTitleClick={dummy}
+            onLogoClick={dummy}
+          />
+        </Provider>
+      </MemoryRouter>
   );
 
   const firstTitle = app.first(`.place-card__name a`);

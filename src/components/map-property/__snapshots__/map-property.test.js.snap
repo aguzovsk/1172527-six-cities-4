@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map property snapshot test. 1`] = `
+<div
+  className="map property__map"
+  id="map"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+/>
+`;

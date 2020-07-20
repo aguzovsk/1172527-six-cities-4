@@ -8,31 +8,18 @@ import configureStore from 'redux-mock-store';
 import {cities, SortTypes} from '../../const.js';
 import offersAmsterdam from '../../test-mock/offers-amsterdam.js';
 
-// import {MemoryRouter} from 'react-router-dom';
+import {MemoryRouter} from 'react-router-dom';
+import entries from '../../test-mock/routerEntries';
 
 const mockStore = configureStore([]);
 
-jest.mock(`react-router-dom`, () => ({
-  __esModule: true,
-  useLocation: jest.fn().mockReturnValue({
-    pathname: `/`,
-    search: ``,
-    hash: ``,
-    state: null,
-    key: ``
-    // key: `5nvxpbdafa`
-  }),
-  matchPath: jest.fn().mockReturnValue(null)
-  // useLocation: jest.fn().mockReturnValue(null),
-}));
-
-// jest.mock(`leaflet`);
-
 describe(`Test app component`, () => {
+  const amsterdam = cities.get(`Amsterdam`);
+
   it(`App component test with offers mock`, () => {
     const store = mockStore({
       currentOffer: undefined,
-      currentCity: cities.get(`Amsterdam`),
+      currentCity: amsterdam,
       offers: offersAmsterdam,
       reviews: [],
       sortType: SortTypes.DEFAULT,
@@ -44,14 +31,20 @@ describe(`Test app component`, () => {
 
     const tree = renderer.create(
         (
-          // <MemoryRouter>
-          <Provider store={store}>
-            <App offers={offersAmsterdam} onCityChange={dummy} onTitleClick={dummy} onLogoClick={dummy} />
-          </Provider>
-          // </MemoryRouter>
+          <MemoryRouter initialEntries={entries} initialIndex={0} >
+            <Provider store={store}>
+              <App
+                offers={offersAmsterdam}
+                currentCity={amsterdam}
+                currentOffer={undefined}
+                onCityChange={dummy}
+                onTitleClick={dummy}
+                onLogoClick={dummy}
+              />
+            </Provider>
+          </MemoryRouter>
         ),
         {
-          // wrapper: MemoryRouter,
           createNodeMock: () => document.createElement(`div`)
         }
     );
