@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import {reviewsProp} from '../../props/reviewProp';
 
 const Details = (props) => {
-  const {offer, onTitleClick} = props;
+  const {offer} = props;
   const {goods, bedrooms, maxAdults, type, price, title, isPremium, rating, host, images} = offer;
   const {description} = offer;
   const {reviews, offers} = props;
@@ -103,12 +103,12 @@ const Details = (props) => {
             <Reviews reviews={reviews} />
           </div>
         </div>
-        <MapProperty offers={offers} currentPlace={offer} />
+        <MapProperty offers={offers} />
       </section>
       <div className="container">
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
-          <PlaceListNearest offers={offers} onTitleClick={onTitleClick} />
+          <PlaceListNearest offers={offers} />
         </section>
       </div>
     </main>
@@ -117,7 +117,6 @@ const Details = (props) => {
 
 Details.propTypes = {
   offer: PropTypes.exact(offerProp),
-  onTitleClick: PropTypes.func.isRequired,
   reviews: reviewsProp,
   offers: offersProp
 };

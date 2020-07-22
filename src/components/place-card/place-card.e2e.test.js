@@ -1,7 +1,7 @@
 import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import PlaceCard from './place-card.jsx';
+import {PlaceCard} from './place-card.jsx';
 import offer from '../../test-mock/offer.js';
 
 configure({adapter: new Adapter()});

@@ -5,11 +5,10 @@ import {placeListPropGeneric} from '../../props/placeProp.js';
 import {getSortFunction} from '../../utils.js';
 
 import {connect} from "react-redux";
-import {ActionCreator} from '../../reducer.js';
+// import {ActionCreator} from '../../reducer.js';
 
 const PlaceListCities = (props) => {
   const {offers, sortType} = props;
-  const {onTitleClick} = props;
 
   return <PlaceList
     listClass="cities__places-list tabs__content"
@@ -20,7 +19,6 @@ const PlaceListCities = (props) => {
         offer={offer}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        onTitleClick={onTitleClick}
       />) }
   />;
 };
@@ -31,11 +29,5 @@ const mapStateToProps = (state) => ({
   sortType: state.sortType
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onTitleClick(offer) {
-    dispatch(ActionCreator.setOffer(offer));
-  }
-});
-
 export {PlaceListCities};
-export default connect(mapStateToProps, mapDispatchToProps)(PlaceListCities);
+export default connect(mapStateToProps)(PlaceListCities);

@@ -22,7 +22,7 @@ it(`PlaceListCities snapshot test`, () => {
 
   const tree = renderer.create(
       <Provider store={store} >
-        <PlaceListCities offers={offersAmsterdam} onTitleClick={() => {}} />
+        <PlaceListCities offers={offersAmsterdam} />
       </Provider>
   ).toJSON();
 

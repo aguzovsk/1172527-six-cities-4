@@ -5,9 +5,9 @@ import {offerProp, offersProp} from './offerProp.js';
 
 const placePropGeneric = {
   offer: PropTypes.exact(offerProp),
-  onMouseEnter: PropTypes.func.isRequired,
-  onMouseLeave: PropTypes.func.isRequired,
-  onTitleClick: PropTypes.func.isRequired
+  // onMouseEnter: PropTypes.func.isRequired,
+  // onMouseLeave: PropTypes.func.isRequired,
+  // onTitleClick: PropTypes.func.isRequired
 };
 
 const placePropObject = Object.assign({}, placePropGeneric, {
@@ -17,7 +17,7 @@ const placePropObject = Object.assign({}, placePropGeneric, {
 
 const placeListPropGeneric = {
   offers: offersProp,
-  onTitleClick: PropTypes.func.isRequired
+  // onTitleClick: PropTypes.func.isRequired
 };
 
 // const placeListPropObject = Object.assign({}, placeListPropGeneric, {

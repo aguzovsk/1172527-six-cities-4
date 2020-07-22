@@ -9,7 +9,6 @@ it(`PlaceCardCities snapshit test`, () => {
         offer={offer}
         onMouseEnter={() => {}}
         onMouseLeave={() => {}}
-        onTitleClick={() => {}}
       />
   ).toJSON();
 

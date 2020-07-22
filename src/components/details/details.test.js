@@ -29,12 +29,14 @@ it(`details component snapshot test`, () => {
   const offer = offersAmsterdam[0];
   const store = mockStore({
     accountName: undefined,
+    currentCity: undefined,
+    currentOffer: offersAmsterdam[1],
+    hoveredOffer: offersAmsterdam[2]
   });
   const tree = renderer.create(
       (
         <Provider store={store} >
           <Details
-            onTitleClick={() => {}}
             offer={offer}
             reviews={reviews.slice(0, 5)}
             offers={offersAmsterdam}

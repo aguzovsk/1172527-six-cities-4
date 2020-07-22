@@ -3,10 +3,13 @@ import {placePropObject} from '../../props/placeProp.js';
 import {typeTextUnfold} from '../../utils.js';
 import {ratingToPercentages} from '../../utils.js';
 
+import {connect} from 'react-redux';
+import {ActionCreator} from '../../reducer';
+
 const PlaceCard = (props) => {
-  const {offer, onMouseLeave, onMouseEnter, onTitleClick} = props;
+  const {offer, cardClass, imageWrapperClass} = props;
+  const {onMouseLeave, onMouseEnter, onTitleClick} = props;
   const {title, type, previewImage, price, rating, isPremium, isFavorite} = offer;
-  const {cardClass, imageWrapperClass} = props;
 
   return <article
     className={`${cardClass} place-card`}
@@ -50,4 +53,19 @@ const PlaceCard = (props) => {
 
 PlaceCard.propTypes = placePropObject;
 
-export default PlaceCard;
+const mapDispatchToProps = (dispatch) => ({
+  onMouseEnter(offer) {
+    dispatch(ActionCreator.setHoveredOffer(offer));
+  },
+
+  onMouseLeave() {
+    dispatch(ActionCreator.unsetHoveredOffer());
+  },
+
+  onTitleClick(offer) {
+    dispatch(ActionCreator.setOffer(offer));
+  },
+});
+
+export {PlaceCard};
+export default connect(undefined, mapDispatchToProps)(PlaceCard);

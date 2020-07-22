@@ -24,7 +24,8 @@ it(`e2e test app`, () => {
     reviews: [],
     sortType: SortTypes.DEFAULT,
     accountName: `Oliver.conner@gmail.com`,
-    citiesList: Array.from(cities.keys())
+    citiesList: Array.from(cities.keys()),
+    hoveredOffer: offersAmsterdam[1],
   });
 
   const dummy = () => {};
@@ -37,7 +38,6 @@ it(`e2e test app`, () => {
             currentCity={amsterdam}
             currentOffer={undefined}
             onCityChange={dummy}
-            onTitleClick={dummy}
             onLogoClick={dummy}
           />
         </Provider>

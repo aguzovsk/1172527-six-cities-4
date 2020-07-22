@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// import {ActionType} from '../../reducer';
+// import {connect} from 'react-redux';
+
 const NO_ACTIVE_CARD = Number.EPSILON;
 
 class PlaceList extends React.PureComponent {
@@ -28,9 +31,7 @@ class PlaceList extends React.PureComponent {
   }
 
   render() {
-    // const {offers, cardType, onTitleClick} = this.props;
     const {listClass, renderCards} = this.props;
-    // className={`places__list ${cardType === `cities` ? `cities__places-list tabs__content` : `near-places__list`}`}
 
     return <div className={`places__list ${listClass}`} >
       {renderCards(this._mouseEnterHandler, this._mouseLeaveHandler)}
@@ -43,6 +44,10 @@ PlaceList.propTypes = {
   listClass: PropTypes.string.isRequired,
   renderCards: PropTypes.func.isRequired
 };
+
+// const mapDispatchToProps = (dispatch) => {
+
+// };
 
 export default PlaceList;
 export {NO_ACTIVE_CARD};

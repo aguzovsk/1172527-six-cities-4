@@ -19,7 +19,6 @@ class App extends React.PureComponent {
 
   _renderApp() {
     const {currentOffer, offers, currentCity} = this.props;
-    const {onTitleClick} = this.props;
 
     if (!currentOffer) {
       return <Main offers={offers} currentCity={currentCity} />;
@@ -27,7 +26,7 @@ class App extends React.PureComponent {
       const offer = offers.find(({id}) => id === currentOffer.id);
 
       if (offer) {
-        return <Details offer={offer} onTitleClick={onTitleClick} />;
+        return <Details offer={offer} />;
       }
 
       return null;
@@ -43,7 +42,7 @@ class App extends React.PureComponent {
           {this._renderApp()}
         </Route>
         <Route exact path="/details">
-          <Details offer={offers[offers.length - 1]} onTitleClick={this._onTitleClick} />
+          <Details offer={offers[offers.length - 1]} />
         </Route>
       </Switch>
     </BrowserRouter>;
@@ -62,9 +61,7 @@ const mapDispatchToProps = (dispatch) => ({
   onCityChange(city) {
     dispatch(ActionCreator.setCity(city));
   },
-  onTitleClick(offer) {
-    dispatch(ActionCreator.setOffer(offer));
-  },
+
   onLogoClick() {
     dispatch(ActionCreator.backToMain());
   }

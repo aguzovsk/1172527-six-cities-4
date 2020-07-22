@@ -9,7 +9,6 @@ it(`PlaceCardNearest component snapshot test.`, () => {
         offer={offer}
         onMouseEnter={() => {}}
         onMouseLeave={() => {}}
-        onTitleClick={() => {}}
       />
   ).toJSON();
 

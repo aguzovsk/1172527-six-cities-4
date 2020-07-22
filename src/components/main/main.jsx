@@ -40,7 +40,6 @@ const Main = (props) => {
           }
           <div className="cities__right-section">
             {!isEmpty && <MapCities currentCity={currentCity} offers={offers} />}
-            {/* <MapCities currentCity={currentCity} offers={offers} /> */}
           </div>
         </div>
       </div>

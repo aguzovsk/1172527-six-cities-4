@@ -24,7 +24,9 @@ describe(`Test app component`, () => {
       reviews: [],
       sortType: SortTypes.DEFAULT,
       accountName: `Oliver.conner@gmail.com`,
-      citiesList: Array.from(cities.keys())
+      citiesList: Array.from(cities.keys()),
+      // currentOffer: offersAmsterdam[1],
+      hoveredOffer: offersAmsterdam[2]
     });
 
     const dummy = () => {};
@@ -38,7 +40,6 @@ describe(`Test app component`, () => {
                 currentCity={amsterdam}
                 currentOffer={undefined}
                 onCityChange={dummy}
-                onTitleClick={dummy}
                 onLogoClick={dummy}
               />
             </Provider>

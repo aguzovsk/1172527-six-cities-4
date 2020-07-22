@@ -4,7 +4,7 @@ import PlaceCardNearest from '../place-card-nearest/place-card-nearest.jsx';
 import {placeListPropGeneric} from '../../props/placeProp.js';
 
 const PlaceListNearest = (props) => {
-  const {offers, onTitleClick} = props;
+  const {offers} = props;
 
   return <PlaceList
     listClass="near-places__list"
@@ -13,7 +13,6 @@ const PlaceListNearest = (props) => {
       offer={offer}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      onTitleClick={onTitleClick}
     />) }
   />;
 };

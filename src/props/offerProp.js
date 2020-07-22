@@ -59,12 +59,12 @@ const offersPropObject = {
 
 const offerPropObjectWithCallback = {
   offer: PropTypes.exact(offerProp),
-  onTitleClick: PropTypes.func.isRequired
+  // onTitleClick: PropTypes.func.isRequired
 };
 
 const offersPropObjectWithCallback = {
   offers: offersProp,
-  onTitleClick: PropTypes.func.isRequired
+  // onTitleClick: PropTypes.func.isRequired
 };
 
 export {cityProp};
