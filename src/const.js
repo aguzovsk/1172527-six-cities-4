@@ -43,6 +43,7 @@ export const SortTypes = {
 };
 
 export const UNSELECTED_OFFER = null;
+export const UNSELECTED_ITEM = undefined;
 export const mapObjectCreator = () => new Map();
 
 // const imgPath = `img`;

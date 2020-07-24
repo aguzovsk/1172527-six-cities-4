@@ -25,7 +25,6 @@ class Map extends React.Component {
     this._activeMarker = undefined;
 
     this._mapRef = React.createRef();
-    this._map = null;
 
     this._setActiveOffer = this._setActiveOffer.bind(this);
 
@@ -105,8 +104,6 @@ class Map extends React.Component {
     // const coordinates = this._getCoordinatesFromOffers(props.offers);
 
     this._addCoordinatesToMap(map, offers);
-
-    this._map = map;
   }
 
   componentDidMount() {
@@ -120,8 +117,9 @@ class Map extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.city.name !== this.props.city.name) {
       const location = this.props.city.location;
+
       const coord = [location.latitude, location.longitude];
-      this._map.panTo(coord, {
+      this._mapRef.current.panTo(coord, {
         animate: true,
         duration: 3,
         easeLinearity: 4,
@@ -158,7 +156,7 @@ Map.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  city: state.currentOffer && state.currentOffer.city || state.currentCity,
+  // city: state.currentOffer && state.currentOffer.city || state.currentCity,
   currentPlace: state.currentOffer,
   hoveredOffer: state.hoveredOffer,
 });

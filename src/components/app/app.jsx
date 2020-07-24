@@ -7,6 +7,10 @@ import {offersPropObject} from '../../props/offerProp.js';
 import {connect} from "react-redux";
 import {ActionCreator} from '../../reducer.js';
 
+import withActiveItem from '../../hocs/with-active-item/with-active-item.jsx';
+
+const WrappedMain = withActiveItem(Main);
+
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -21,7 +25,7 @@ class App extends React.PureComponent {
     const {currentOffer, offers, currentCity} = this.props;
 
     if (!currentOffer) {
-      return <Main offers={offers} currentCity={currentCity} />;
+      return <WrappedMain offers={offers} currentCity={currentCity} />;
     } else {
       const offer = offers.find(({id}) => id === currentOffer.id);
 

@@ -7,13 +7,13 @@ import {UNSELECTED_OFFER} from './const';
 const generatedOffers = generateOffers();
 
 const initialState = {
-  currentOffer: UNSELECTED_OFFER,
+  currentOffer: UNSELECTED_OFFER, // should be removed, or updated
   hoveredOffer: undefined,
-  currentCity: cities.get(`Amsterdam`),
+  currentCity: cities.get(`Amsterdam`), // should be removed, or updated
   offers: generatedOffers,
   reviews: generateReviews(1),
   sortType: SortTypes.DEFAULT,
-  accountName: `Oliver.conner@gmail.com`,
+  accountName: undefined,
   citiesList: Array.from(cities.keys())
 };
 
