@@ -1,12 +1,14 @@
 import React from 'react';
 import Map from '../map/map.jsx';
-import {offersProp} from '../../props/offerProp.js';
+import {offerPropExact, offersProp} from '../../props/offerProp.js';
 
 
 const MapProperty = (props) => {
-  const {offers} = props;
+  const {offer, offers} = props;
 
   return <Map
+    city={offer.city}
+    currentPlace={offer}
     offers={offers.slice(0, 3)}
     mapClass="property__map"
   />;
@@ -14,6 +16,7 @@ const MapProperty = (props) => {
 
 
 MapProperty.propTypes = {
+  offer: offerPropExact,
   offers: offersProp,
   // currentPlace: PropTypes.exact(offerProp)
 };

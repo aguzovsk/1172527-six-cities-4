@@ -46,6 +46,7 @@ const offerExtended = {
 };
 
 const offerProp = Object.assign({}, offerBasic, offerExtended);
+const offerPropExact = PropTypes.exact(offerProp);
 
 const offerPropObject = {
   offer: PropTypes.exact(offerProp)
@@ -68,6 +69,7 @@ const offersPropObjectWithCallback = {
 };
 
 export {cityProp};
+export {offerPropExact};
 export {offerProp, offersProp};
 export {offersPropObject, offerPropObject};
 export {offerPropObjectWithCallback, offersPropObjectWithCallback};

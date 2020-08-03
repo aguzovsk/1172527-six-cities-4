@@ -103,7 +103,7 @@ const Details = (props) => {
             <Reviews reviews={reviews} />
           </div>
         </div>
-        <MapProperty offers={offers} />
+        <MapProperty offer={offer} offers={offers} />
       </section>
       <div className="container">
         <section className="near-places places">

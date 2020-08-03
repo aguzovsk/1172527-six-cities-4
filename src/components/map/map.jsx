@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 // import {ActionCreator} from '../../reducer';
 import {mapObjectCreator} from '../../const';
 
-class Map extends React.Component {
+class Map extends React.PureComponent {
   constructor(props) {
     super(props);
 
