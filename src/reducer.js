@@ -10,7 +10,8 @@ const initialState = {
   currentOffer: UNSELECTED_OFFER, // should be removed, or updated
   hoveredOffer: undefined,
   currentCity: cities.get(`Amsterdam`), // should be removed, or updated
-  offers: generatedOffers,
+  // offers: generatedOffers,
+  offers: [],
   reviews: generateReviews(1),
   sortType: SortTypes.DEFAULT,
   accountName: undefined,
@@ -24,7 +25,10 @@ const ActionType = {
   TO_LOGIN_PAGE: `TO_LOGIN_PAGE`,
   CHANGE_SORTING: `CHANGE_SORTING`,
   SET_HOVER_OFFER: `SET_HOVER_OFFER`,
-  UNSET_HOVER_OFFER: `UNSET_HOVER_OFFER`
+  UNSET_HOVER_OFFER: `UNSET_HOVER_OFFER`,
+  REQUIRE_AUTHORIZATION: `REQUIRE_AUTHORIZATION`,
+  LOAD_OFFERS: `LOAD_OFFERS`,
+  CHECK_AUTH: `CHECK_AUTH`,
 };
 
 const ActionCreator = {
@@ -50,7 +54,21 @@ const ActionCreator = {
   }),
   unsetHoveredOffer: () => ({
     type: ActionType.UNSET_HOVER_OFFER,
-  })
+  }),
+  requireAuthorization: (status) => ({
+    type: ActionType.REQUIRE_AUTHORIZATION,
+    payload: status,
+  }),
+  loadHotels: (hotels) => ({
+    type: ActionType.LOAD_OFFERS,
+    payload: hotels
+  }),
+  // checkAuth: (api) => ({
+  //   type: ActionCreator.CHECK_AUTH,
+  //   payload: api.get(`/login`).then(() => {
+  //     dispatch()
+  //   })
+  // }),
 };
 
 const reducer = (state = initialState, action) => {
@@ -96,6 +114,11 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         hoveredOffer: undefined
       });
+
+    case ActionType.LOAD_OFFERS:
+      return extend(state, {
+        offers: action.payload
+      })
   }
 
   return state;

@@ -101,6 +101,7 @@ class Map extends React.PureComponent {
   print(props) {
     const {city, offers} = props;
     const map = this._getConfiguredMap(city);
+    this._map = map;
     // const coordinates = this._getCoordinatesFromOffers(props.offers);
 
     this._addCoordinatesToMap(map, offers);
@@ -117,9 +118,8 @@ class Map extends React.PureComponent {
   componentDidUpdate(prevProps) {
     if (prevProps.city.name !== this.props.city.name) {
       const location = this.props.city.location;
-
       const coord = [location.latitude, location.longitude];
-      this._mapRef.current.panTo(coord, {
+      this._map.panTo(coord, {
         animate: true,
         duration: 3,
         easeLinearity: 4,

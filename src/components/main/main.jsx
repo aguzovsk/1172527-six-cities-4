@@ -16,7 +16,6 @@ const Main = (props) => {
   const {onSetActiveItem, activeItem, offers} = props;
   const activeCity = activeItem === UNSELECTED_ITEM ? cities.get(`Amsterdam`) : activeItem;
 
-
   // const {offers, currentCity} = props;
   const selectedOffers = getOffersByCity(offers, activeCity);
   const isEmpty = selectedOffers.length === 0;
@@ -33,7 +32,7 @@ const Main = (props) => {
             <section className="cities__no-places">
               <div className="cities__status-wrapper tabs__content">
                 <b className="cities__status">No places to stay available</b>
-                <p className="cities__status-description">We could not find any property availbale at the moment in {activeItem.name}</p>
+                <p className="cities__status-description">We could not find any property availbale at the moment in {activeCity.name}</p>
               </div>
             </section> :
             <section className="cities__places places">
