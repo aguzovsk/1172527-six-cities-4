@@ -1,23 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app/app.jsx';
 
 import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
-import {reducer, ActionCreator} from './reducer.js';
-
 import thunk from 'redux-thunk';
+
+import App from './components/app/app.jsx';
+
+import reducer from './reducer/reducer';
+import {Operation as DataOperation} from './reducer/data/data';
+// import {Operation as UserOperation, ActionCreator} from './reducer/user/user';
+
 import {createAPI} from './api.js';
-import Offer from './models/offer';
 
-const AuthorizationStatus = {
-  NO_AUTH: `NO_AUTH`,
-  AUTH: `AUTH`,
-};
+import {AuthorizationStatus} from './const';
 
-const api = createAPI(() => {
+const onUnauthorized = () => {
   store.dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH));
-});
+}
+
+// const api = createAPI(() => {
+//   store.dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH));
+// });
+
+const api = createAPI(onUnauthorized);
 
 const store = createStore(
     reducer,
@@ -27,12 +33,8 @@ const store = createStore(
     )
 );
 
-api.get(`\hotels`).then((response) => {
-  const data = response.data;
-  const hotels = data.map((datum) => new Offer(datum));
-  store.dispatch(ActionCreator.loadHotels(hotels));
-});
-// store.dispatch(ActionCreator.checkAuth(api));
+store.dispatch(DataOperation.loadOffers());
+// store.dispatch(UserOperation.checkAuth());
 
 const init = () => {
   ReactDOM.render(

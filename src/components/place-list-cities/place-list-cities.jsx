@@ -3,6 +3,7 @@ import PlaceList from '../place-list/place-list.jsx';
 import PlaceCardCities from '../place-card-cities/place-card-cities.jsx';
 import {placeListPropGeneric} from '../../props/placeProp.js';
 import {getSortFunction} from '../../utils.js';
+import {getSortType} from '../../reducer/app/selectors';
 
 import {connect} from "react-redux";
 // import {ActionCreator} from '../../reducer.js';
@@ -26,7 +27,7 @@ const PlaceListCities = (props) => {
 PlaceListCities.propTypes = placeListPropGeneric;
 
 const mapStateToProps = (state) => ({
-  sortType: state.sortType
+  sortType: getSortType(state)
 });
 
 export {PlaceListCities};

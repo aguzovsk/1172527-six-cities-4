@@ -5,15 +5,24 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {offersPropObject} from '../../props/offerProp.js';
 
 import {connect} from "react-redux";
-import {ActionCreator} from '../../reducer.js';
+// import {ActionCreator} from '../../reducer.js';
+
+import {Operation as UserOperation, ActionCreator} from '../../reducer/user/user';
+import {ActionCreator as AppActionCreator} from '../../reducer/app/app';
+// import {} from '';
 
 import withActiveItem from '../../hocs/with-active-item/with-active-item.jsx';
+
+import {getCurrentCity, getCurrentOffer} from '../../reducer/app/selectors';
+import {getOffersInCity} from '../../reducer/data/selectors';
+
 
 const WrappedMain = withActiveItem(Main);
 
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
+    console.log(props);
 
     this.state = {
       offers: props.offers,
@@ -56,18 +65,20 @@ class App extends React.PureComponent {
 App.propTypes = offersPropObject;
 
 const mapStateToProps = (state) => ({
-  offers: state.offers,
-  currentCity: state.currentCity,
-  currentOffer: state.currentOffer
+  offers: getOffersInCity(state),
+  currentCity: getCurrentCity(state),
+  currentOffer: getCurrentOffer(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCityChange(city) {
-    dispatch(ActionCreator.setCity(city));
+  login(authData) {
+    dispatch(UserOperation.login(authData));
   },
-
+  onCityChange(city) {
+    dispatch(AppActionCreator.setCity(city));
+  },
   onLogoClick() {
-    dispatch(ActionCreator.backToMain());
+    dispatch(AppActionCreator.backToMain());
   }
 });
 

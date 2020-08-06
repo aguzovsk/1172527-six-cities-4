@@ -8,6 +8,20 @@ class Review {
     this.comment = datum.comment;
     this.date = new Date(datum.date);
   }
+
+  toRaw() {
+    const rating = Number(this.rating.toFixed(1));
+    const isInt = Number.isInteger(rating);
+
+    return {
+      'rating': isInt ? String(rating) : rating.toFixed(1),
+      'comment': this.comment,
+    }
+  }
+
+  static parseReviewsArray(reviews) {
+    return reviews.map((review) => new Review(review));
+  }
 }
 
 export default Review;

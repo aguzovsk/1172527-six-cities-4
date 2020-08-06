@@ -1,34 +1,21 @@
-import {extend} from './utils.js';
-import {generateOffers} from './mock/offers.js';
-import {cities, SortTypes} from './const.js';
-import {generateReviews} from './mock/reviews.js';
-import {UNSELECTED_OFFER} from './const';
-
-const generatedOffers = generateOffers();
+import {extend} from '../../utils';
+import {UNSELECTED_OFFER, cities, SortTypes} from '../../const';
 
 const initialState = {
-  currentOffer: UNSELECTED_OFFER, // should be removed, or updated
-  hoveredOffer: undefined,
+  citiesList: Array.from(cities.keys()),
   currentCity: cities.get(`Amsterdam`), // should be removed, or updated
-  // offers: generatedOffers,
-  offers: [],
-  reviews: generateReviews(1),
+  currentOffer: UNSELECTED_OFFER, // should be removed, or updated
+  hoveredOffer: UNSELECTED_OFFER,
   sortType: SortTypes.DEFAULT,
-  accountName: undefined,
-  citiesList: Array.from(cities.keys())
 };
 
 const ActionType = {
   SET_OFFER: `SET_OFFER`,
   SET_CITY: `SET_CITY`,
-  BACK_TO_MAIN: `BACK_TO_MAIN`,
-  TO_LOGIN_PAGE: `TO_LOGIN_PAGE`,
   CHANGE_SORTING: `CHANGE_SORTING`,
   SET_HOVER_OFFER: `SET_HOVER_OFFER`,
   UNSET_HOVER_OFFER: `UNSET_HOVER_OFFER`,
-  REQUIRE_AUTHORIZATION: `REQUIRE_AUTHORIZATION`,
-  LOAD_OFFERS: `LOAD_OFFERS`,
-  CHECK_AUTH: `CHECK_AUTH`,
+  BACK_TO_MAIN: `BACK_TO_MAIN`,
 };
 
 const ActionCreator = {
@@ -40,10 +27,6 @@ const ActionCreator = {
     type: ActionType.SET_OFFER,
     payload: offer
   }),
-  backToMain: () => ({
-    type: ActionType.BACK_TO_MAIN,
-    payload: UNSELECTED_OFFER
-  }),
   changeSorting: (sortType) => ({
     type: ActionType.CHANGE_SORTING,
     payload: sortType
@@ -52,23 +35,14 @@ const ActionCreator = {
     type: ActionType.SET_HOVER_OFFER,
     payload: offer
   }),
-  unsetHoveredOffer: () => ({
+  unsetHoveredOffer: (offer) => ({
     type: ActionType.UNSET_HOVER_OFFER,
+    payload: offer
   }),
-  requireAuthorization: (status) => ({
-    type: ActionType.REQUIRE_AUTHORIZATION,
-    payload: status,
-  }),
-  loadHotels: (hotels) => ({
-    type: ActionType.LOAD_OFFERS,
-    payload: hotels
-  }),
-  // checkAuth: (api) => ({
-  //   type: ActionCreator.CHECK_AUTH,
-  //   payload: api.get(`/login`).then(() => {
-  //     dispatch()
-  //   })
-  // }),
+  backToMain: () => ({
+    type: ActionType.BACK_TO_MAIN,
+    payload: UNSELECTED_OFFER
+  })
 };
 
 const reducer = (state = initialState, action) => {
@@ -87,15 +61,6 @@ const reducer = (state = initialState, action) => {
         currentCity: cities.get(action.payload)
       });
 
-    case ActionType.BACK_TO_MAIN:
-      if (state.currentOffer === UNSELECTED_OFFER) {
-        return state;
-      }
-
-      return extend(state, {
-        currentOffer: action.payload
-      });
-
     case ActionType.CHANGE_SORTING:
       if (state.sortType === action.payload) {
         return state;
@@ -111,17 +76,26 @@ const reducer = (state = initialState, action) => {
       });
 
     case ActionType.UNSET_HOVER_OFFER:
+      if (state.hoveredOffer !== action.payload) {
+        return state;
+      }
+
       return extend(state, {
-        hoveredOffer: undefined
+        hoveredOffer: action.payload
       });
 
-    case ActionType.LOAD_OFFERS:
-      return extend(state, {
-        offers: action.payload
-      })
-  }
+    case ActionType.BACK_TO_MAIN:
+      if (state.currentOffer === UNSELECTED_OFFER) {
+        return state;
+      }
 
-  return state;
+      return extend(state, {
+        currentOffer: action.payload
+      });
+
+    default:
+      return state;
+  }
 };
 
-export {ActionCreator, reducer, UNSELECTED_OFFER};
+export {reducer, ActionCreator, ActionType};

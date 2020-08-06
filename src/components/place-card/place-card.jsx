@@ -4,7 +4,8 @@ import {typeTextUnfold} from '../../utils.js';
 import {ratingToPercentages} from '../../utils.js';
 
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer';
+// import {ActionCreator} from '../../reducer';
+import {ActionCreator as AppActionCreator} from '../../reducer/app/app';
 
 const PlaceCard = (props) => {
   const {offer, cardClass, imageWrapperClass} = props;
@@ -14,7 +15,7 @@ const PlaceCard = (props) => {
   return <article
     className={`${cardClass} place-card`}
     onMouseEnter={() => onMouseEnter(offer)}
-    onMouseLeave={() => onMouseLeave()}
+    onMouseLeave={() => onMouseLeave(offer)}
   >
     {isPremium && <div className="place-card__mark">
       <span>Premium</span>
@@ -55,15 +56,15 @@ PlaceCard.propTypes = placePropObject;
 
 const mapDispatchToProps = (dispatch) => ({
   onMouseEnter(offer) {
-    dispatch(ActionCreator.setHoveredOffer(offer));
+    dispatch(AppActionCreator.setHoveredOffer(offer));
   },
 
-  onMouseLeave() {
-    dispatch(ActionCreator.unsetHoveredOffer());
+  onMouseLeave(offer) {
+    dispatch(AppActionCreator.unsetHoveredOffer(offer));
   },
 
   onTitleClick(offer) {
-    dispatch(ActionCreator.setOffer(offer));
+    dispatch(AppActionCreator.setOffer(offer));
   },
 });
 

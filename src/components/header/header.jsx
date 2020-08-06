@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import {useLocation, matchPath} from 'react-router-dom';
 
 import {connect} from 'react-redux';
-import {ActionCreator} from "../../reducer.js";
+// import {ActionCreator} from "../../reducer.js";
+
+import {ActionCreator as AppActionCreator} from '../../reducer/app/app';
+import {getUserName} from '../../reducer/user/selectors';
 
 const Header = ({onLogoClick, accountName}) => {
   const location = useLocation();
@@ -44,12 +47,12 @@ Header.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  accountName: state.accountName
+  accountName: getUserName(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onLogoClick() {
-    dispatch(ActionCreator.backToMain());
+    dispatch(AppActionCreator.backToMain());
   },
 });
 

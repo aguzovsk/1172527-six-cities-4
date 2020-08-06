@@ -1,8 +1,9 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer.js';
+import {connect} from 'react-redux';;
 import {SortTypes} from '../../const.js';
 import PropTypes from 'prop-types';
+import {getSortType} from '../../reducer/app/selectors';
+import {ActionCreator as AppActionCreator} from '../../reducer/app/app';
 
 const sortValues = {
   [SortTypes.DEFAULT]: `Popular`,
@@ -56,12 +57,12 @@ PlacesSorting.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  active: state.sortType
+  active: getSortType(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onClick(sortType) {
-    dispatch(ActionCreator.changeSorting(sortType));
+    dispatch(AppActionCreator.changeSorting(sortType));
   }
 });
 

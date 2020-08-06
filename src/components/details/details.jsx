@@ -10,6 +10,9 @@ import {offerProp, offersProp} from '../../props/offerProp.js';
 import PropTypes from 'prop-types';
 import {reviewsProp} from '../../props/reviewProp';
 
+import {getNearby, getReviews} from '../../reducer/data/selectors';
+import {getCurrentOffer} from '../../reducer/app/selectors';
+
 const Details = (props) => {
   const {offer} = props;
   const {goods, bedrooms, maxAdults, type, price, title, isPremium, rating, host, images} = offer;
@@ -122,9 +125,9 @@ Details.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  offers: state.offers.slice(0, 3),
-  reviews: state.reviews,
-  offer: state.currentOffer
+  offers: getNearby(state).slice(0, 3),
+  reviews: getReviews(state),
+  offer: getCurrentOffer(state)
 });
 
 export {Details};

@@ -42,6 +42,11 @@ export const SortTypes = {
   TOP: `top-rated`
 };
 
+export const AuthorizationStatus = {
+  NO_AUTH: `NO_AUTH`,
+  AUTH: `AUTH`,
+};
+
 export const UNSELECTED_OFFER = null;
 export const UNSELECTED_ITEM = undefined;
 export const mapObjectCreator = () => new Map();

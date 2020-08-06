@@ -7,6 +7,8 @@ import {connect} from 'react-redux';
 // import {ActionCreator} from '../../reducer';
 import {mapObjectCreator} from '../../const';
 
+import {getCurrentOffer, getHoveredOffer} from '../../reducer/app/selectors';
+
 class Map extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -157,8 +159,8 @@ Map.propTypes = {
 
 const mapStateToProps = (state) => ({
   // city: state.currentOffer && state.currentOffer.city || state.currentCity,
-  currentPlace: state.currentOffer,
-  hoveredOffer: state.hoveredOffer,
+  currentPlace: getCurrentOffer(state),
+  hoveredOffer: getCurrentOffer(state),
 });
 
 // const mapDispatchToProps = (dispatch) => ({

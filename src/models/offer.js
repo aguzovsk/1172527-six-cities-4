@@ -23,6 +23,10 @@ class Offer {
     this.maxAdults = Number.parseInt(datum.max_adults);
     this.goods = [...datum.goods];
   }
+
+  static parseOffersArray(offers) {
+    return offers.map((offer) => new Offer(offer));
+  }
 }
 
 export default Offer;
