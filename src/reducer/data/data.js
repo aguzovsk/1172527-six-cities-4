@@ -74,7 +74,7 @@ const reducer = (state = initialState, action) => {
 
     case ActionType.LOAD_FAVORITES:
       return extend(state, {
-        favorites: action.payload
+        favorites: new Set(action.payload)
       });
 
     case ActionType.ADD_TO_FAVORITES:

@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const ActionType = {
-  REQUIRE_AUTHORIZATION: `REQUIRE_AUTHORIZATION`,
+  REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
   // CHECK_AUTH: `CHECK_AUTH`,
   // AUTH_STATUS: `AUTH_STATUS`,
   // LOGIN: `LOGIN`,
@@ -20,14 +20,19 @@ const ActionCreator = {
   //   payload: status,
   // }),
   requireAuthorization: (status) => ({
-    type: ActionType.REQUIRE_AUTHORIZATION,
+    type: ActionType.REQUIRED_AUTHORIZATION,
     payload: status,
   }),
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.AUTH_STATUS:
+    // case ActionType.AUTH_STATUS:
+    //   return extend(state, {
+    //     authorizationStatus: action.payload
+    //   });
+
+    case ActionType.REQUIRED_AUTHORIZATION:
       return extend(state, {
         authorizationStatus: action.payload
       });
