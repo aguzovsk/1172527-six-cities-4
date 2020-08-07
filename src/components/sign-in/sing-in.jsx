@@ -1,5 +1,7 @@
 import React, {createRef} from 'react';
 import Header from '../header/header.jsx';
+import {Operation as UserOperation} from '../../reducer/user/user';
+// import {getAuthorizationStatus} from '../../reducer/user/selectors';
 
 import {connect} from 'react-redux';
 
@@ -61,7 +63,16 @@ class SignIn extends React.PureComponent {
   }
 }
 
-const mapStateToProps = ()
+// const mapStateToProps = (state) => {
+//   isAuthorized: getAuthorizationStatus(state),
+//   // accountName:
+// };
+
+const mapDispatchToProps = (dispatch) => ({
+  login(authData) {
+    dispatch(UserOperation.login(authData));
+  },
+});
 
 export {SignIn};
-export default connect(mapStateToProps)(SignIn);
+export default connect(undefined, mapDispatchToProps)(SignIn);
